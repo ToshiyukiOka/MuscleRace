@@ -56,6 +56,7 @@
             [membergroup addUser:user];
             [membergroup saveSynchronous:&error];
             
+            
             if (error != nil) {
                 // Group add members failed
                 // Please check error description/code to see what went wrong...
