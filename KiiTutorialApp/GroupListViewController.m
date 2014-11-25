@@ -6,6 +6,13 @@
 //  Copyright (c) 2014 Kii Corporation. All rights reserved.
 //
 
+#import <KiiSDK/KiiBucket.h>
+#import <KiiSDK/Kii.h>
+#import "KiiCreateObjectViewController.h"
+#import "KiiFileUploadViewController.h"
+#import "KiiViewUtilities.h"
+#import "KiiAppConstants.h"
+#import "KiiCommonUtilities.h"
 #import <Foundation/Foundation.h>
 #import "GroupListViewController.h"
 #import "KiiUserGroup.h"
@@ -30,15 +37,34 @@
 }
 
 - (void)loadInitialData {
-    KiiUserGroup *group1 = [[KiiUserGroup alloc] init];
-    group1.groupName = @"Atrae Inc.";
-    [userGroups addObject:group1];
-    KiiUserGroup *group2 = [[KiiUserGroup alloc] init];
-    group2.groupName = @"KAIZEN platform Inc.";
-    [userGroups addObject:group2];
-    KiiUserGroup *group3 = [[KiiUserGroup alloc] init];
-    group3.groupName = @"Rakuten Inc.";
-    [userGroups addObject:group3];
+    
+    NSError *error;
+    // Get the current login user
+    KiiUser *user = [KiiUser currentUser];
+    [user refreshSynchronous:&error];
+    
+    // Get a list of groups in which the current user is a member
+    NSArray* memberGroups = [user memberOfGroupsSynchronous:&error];
+    if (error == nil) {
+        for (KiiGroup* membergroup in memberGroups) {
+            // do something with each group
+            KiiUserGroup* group = [[KiiUserGroup alloc] init];
+            group.groupName = membergroup.name;
+            [userGroups addObject:group];
+            
+            // Add user1 and user2 to the group
+            [membergroup addUser:user];
+            [membergroup saveSynchronous:&error];
+            
+            if (error != nil) {
+                // Group add members failed
+                // Please check error description/code to see what went wrong...
+            }
+        }
+    } else {
+        // Getting a group list failed
+        // Please check error description/code to see what went wrong...
+    }
 }
 
 

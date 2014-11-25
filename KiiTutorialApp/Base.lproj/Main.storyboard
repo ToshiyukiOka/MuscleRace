@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="A5y-vk-Azc">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -744,8 +745,8 @@ What you have done so far:</string>
                     </view>
                     <navigationItem key="navigationItem" id="0tg-FE-cVQ"/>
                     <connections>
-                        <outlet property="groupnameField" destination="fJC-rS-ES7" id="jsd-re-rwG"/>
-                        <segue destination="k0Q-9a-vaQ" kind="push" identifier="CreateObjectCompleted" id="of8-vM-Arz"/>
+                        <outlet property="groupNameField" destination="fJC-rS-ES7" id="Ka0-B7-JAq"/>
+                        <segue destination="jcu-Ti-XMf" kind="push" identifier="CreateObjectCompleted" id="bri-aB-XEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6f-6q-EPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -930,7 +931,65 @@ What you have done so far:</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENJ-mD-Dgt" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2714" y="-1423"/>
+            <point key="canvasLocation" x="2792" y="-1353"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="bgw-rJ-vR9">
+            <objects>
+                <tableViewController id="fTy-9U-s0Y" customClass="RBLControlViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tDQ-v3-SRA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A5C-He-CAm">
+                            <rect key="frame" x="0.0" y="110" width="320" height="178"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oHo-20-SNd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oHo-20-SNd" id="1QG-dZ-LYQ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="117" id="xwu-Pd-NYa">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xwu-Pd-NYa" id="Y2Z-8h-QO5">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zC1-Mx-nc8">
+                                            <rect key="frame" x="51" y="27" width="219" height="61"/>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" title="カウントを送信する">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="jcu-Ti-XMf" kind="modal" id="BCO-pM-WNv"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fTy-9U-s0Y" id="L0M-Q2-rSB"/>
+                            <outlet property="delegate" destination="fTy-9U-s0Y" id="HsH-Sf-6K4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="1Uf-Te-0x9"/>
+                    <connections>
+                        <outlet property="countLabel" destination="A5C-He-CAm" id="8If-Tp-mgo"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MS7-Lq-rQM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1587" y="-2046"/>
         </scene>
         <!--BLE Controller-->
         <scene sceneID="2Hq-zc-iME">
@@ -986,7 +1045,7 @@ What you have done so far:</string>
                         <outlet property="btnConnect" destination="heU-8O-T9z" id="lES-Kw-V6Z"/>
                         <outlet property="btnConnectLast" destination="K7F-pt-6wU" id="zVY-rf-EXc"/>
                         <segue destination="uRw-fK-UdI" kind="push" identifier="showDevice" id="nPc-vv-be7"/>
-                        <segue destination="SZA-bT-fWq" kind="push" identifier="gotoControlVC" id="eEK-bX-2sS"/>
+                        <segue destination="fTy-9U-s0Y" kind="push" identifier="gotoControlVC" id="O89-bH-42W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvl-hS-wqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1030,6 +1089,7 @@ What you have done so far:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="BCO-pM-WNv"/>
         <segue reference="vxm-Dw-L7z"/>
     </inferredMetricsTieBreakers>
 </document>

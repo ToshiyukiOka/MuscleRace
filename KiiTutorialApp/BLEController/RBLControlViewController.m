@@ -30,7 +30,6 @@ uint8_t init_done = 0;
 Boolean *count_status = false;
 
 @interface RBLControlViewController ()
-
 @end
 
 @implementation RBLControlViewController
@@ -169,6 +168,25 @@ NSTimer *syncTimer;
     uint8_t _mode = mode & 0x0F;
     
     pin_mode[pin] = _mode;
+    pin_analog[pin] = ((mode >> 4) << 8) + value;
+    
+    if (pin_analog[pin] > 250) {
+        if (count_status == false)
+        {
+            count++;
+            NSLog(@"%d回", count);
+            countLabel.text = [NSString stringWithFormat:@"%d", count];
+            count_status = true;
+        }
+    }
+    else
+    {
+        if (count_status == true)
+        {
+            count_status = false;
+        }
+    }
+    
     if ((_mode == INPUT) || (_mode == OUTPUT))
         pin_digital[pin] = value;
     else if (_mode == ANALOG)

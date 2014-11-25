@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <KiiSDK/KiiObject.h>
 
 @interface KiiUserGroup : NSObject
 

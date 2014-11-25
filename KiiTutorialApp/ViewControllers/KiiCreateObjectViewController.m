@@ -20,6 +20,8 @@
 
 @implementation KiiCreateObjectViewController
 
+@synthesize groupNameField;
+
 - (void)viewDidLoad {
     [KiiViewUtilities showSuccessHUD:@"Login success" withView:self.view];
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(descViewTaped:)];
@@ -31,9 +33,14 @@
 
 - (IBAction)mCreateKiiObjectButton:(id)sender {
     NSError *error;
-    NSString *groupName = @"myGroup";
+    NSString *enteredText = self.groupNameField.text;
+    NSString *groupName = enteredText;
     
     KiiGroup* group = [KiiGroup groupWithName:groupName];
+    [group saveSynchronous:&error];
+    // Add user1 and user2 to the group
+    KiiUser *user = [KiiUser currentUser];
+    [group addUser:user];
     [group saveSynchronous:&error];
     
     if (error != nil) {
@@ -52,7 +59,6 @@
     // Get the reference ID.
     //NSString *groupID = [group groupID];
     
-    NSLog(groupUri);
     //NSLog(groupID);
     
     //KiiBucket *bucket = [Kii bucketWithName:@"Group"]; //KII_APP_BUCKET_NAME
@@ -70,12 +76,12 @@
     [KiiViewUtilities showProgressHUD:@"Create KiiObject..." withView:self.view];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"CreateObjectCompleted"]) {
-        KiiFileUploadViewController *viewController = (KiiFileUploadViewController *) [segue destinationViewController];
-        viewController.kiiObject = self.kiiObject;
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] isEqualToString:@"CreateObjectCompleted"]) {
+//        KiiFileUploadViewController *viewController = (KiiFileUploadViewController *) [segue destinationViewController];
+//        viewController.kiiObject = self.kiiObject;
+//    }
+//}
 
 - (void)descViewTaped:(UIGestureRecognizer *)gestureRecognizer {
     

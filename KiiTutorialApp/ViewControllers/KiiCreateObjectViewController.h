@@ -12,6 +12,6 @@
 @interface KiiCreateObjectViewController : UIViewController
 
 @property (nonatomic, strong) KiiObject *kiiObject;
-@property (nonatomic, strong) IBOutlet UITextField *groupnameField;
+@property (nonatomic, retain) IBOutlet UITextField *groupNameField;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <KiiSDK/KiiObject.h>
 
 @interface GroupListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
