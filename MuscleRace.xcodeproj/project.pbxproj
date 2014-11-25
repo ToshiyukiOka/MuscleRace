@@ -78,14 +78,14 @@
 		4F2D14871A1795260060A9D9 /* KiiUserGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KiiUserGroup.m; path = KiiTutorialApp/KiiUserGroup.m; sourceTree = "<group>"; };
 		9B3F55A8183B574800B60B5F /* KiiCommonUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KiiCommonUtilities.h; path = ViewControllers/Utilities/KiiCommonUtilities.h; sourceTree = "<group>"; };
 		9B3F55A9183B574800B60B5F /* KiiCommonUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KiiCommonUtilities.m; path = ViewControllers/Utilities/KiiCommonUtilities.m; sourceTree = "<group>"; };
-		9B5B531618338B26000533F9 /* KiiTutorialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiiTutorialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B5B531618338B26000533F9 /* MuscleRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MuscleRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B5B531918338B26000533F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9B5B531B18338B26000533F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		9B5B531D18338B26000533F9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		9B5B532118338B26000533F9 /* KiiTutorialApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KiiTutorialApp-Info.plist"; sourceTree = "<group>"; };
+		9B5B532118338B26000533F9 /* MuscleRace-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MuscleRace-Info.plist"; sourceTree = "<group>"; };
 		9B5B532318338B26000533F9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9B5B532518338B26000533F9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		9B5B532718338B26000533F9 /* KiiTutorialApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KiiTutorialApp-Prefix.pch"; sourceTree = "<group>"; };
+		9B5B532718338B26000533F9 /* MuscleRace-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MuscleRace-Prefix.pch"; sourceTree = "<group>"; };
 		9B5B532818338B26000533F9 /* KiiAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KiiAppDelegate.h; sourceTree = "<group>"; };
 		9B5B532918338B26000533F9 /* KiiAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiiAppDelegate.m; sourceTree = "<group>"; };
 		9B5B532E18338B26000533F9 /* KiiFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = KiiFirstViewController.h; path = ViewControllers/KiiFirstViewController.h; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		9B5B531718338B26000533F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B5B531618338B26000533F9 /* KiiTutorialApp.app */,
+				9B5B531618338B26000533F9 /* MuscleRace.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,8 +220,8 @@
 				4F291F5B19E25F100043710D /* BLE.m */,
 				4F291F5C19E25F100043710D /* BLEDefines.h */,
 				9B5B532218338B26000533F9 /* InfoPlist.strings */,
-				9B5B532118338B26000533F9 /* KiiTutorialApp-Info.plist */,
-				9B5B532718338B26000533F9 /* KiiTutorialApp-Prefix.pch */,
+				9B5B532118338B26000533F9 /* MuscleRace-Info.plist */,
+				9B5B532718338B26000533F9 /* MuscleRace-Prefix.pch */,
 				9B5B532518338B26000533F9 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -282,9 +282,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9B5B531518338B26000533F9 /* KiiTutorialApp */ = {
+		9B5B531518338B26000533F9 /* MuscleRace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9B5B534818338B27000533F9 /* Build configuration list for PBXNativeTarget "KiiTutorialApp" */;
+			buildConfigurationList = 9B5B534818338B27000533F9 /* Build configuration list for PBXNativeTarget "MuscleRace" */;
 			buildPhases = (
 				9B5B531218338B26000533F9 /* Sources */,
 				9B5B531318338B26000533F9 /* Frameworks */,
@@ -294,9 +294,9 @@
 			);
 			dependencies = (
 			);
-			name = KiiTutorialApp;
+			name = MuscleRace;
 			productName = KiiTutorialApp;
-			productReference = 9B5B531618338B26000533F9 /* KiiTutorialApp.app */;
+			productReference = 9B5B531618338B26000533F9 /* MuscleRace.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -309,7 +309,7 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Kii Corporation";
 			};
-			buildConfigurationList = 9B5B531118338B26000533F9 /* Build configuration list for PBXProject "KiiTutorialApp" */;
+			buildConfigurationList = 9B5B531118338B26000533F9 /* Build configuration list for PBXProject "MuscleRace" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -322,7 +322,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9B5B531518338B26000533F9 /* KiiTutorialApp */,
+				9B5B531518338B26000533F9 /* MuscleRace */,
 			);
 		};
 /* End PBXProject section */
@@ -479,11 +479,11 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KiiTutorialApp/KiiTutorialApp-Prefix.pch";
-				INFOPLIST_FILE = "KiiTutorialApp/KiiTutorialApp-Info.plist";
+				GCC_PREFIX_HEADER = "KiiTutorialApp/MuscleRace-Prefix.pch";
+				INFOPLIST_FILE = "KiiTutorialApp/MuscleRace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MuscleRace;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -501,10 +501,10 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "KiiTutorialApp/KiiTutorialApp-Prefix.pch";
-				INFOPLIST_FILE = "KiiTutorialApp/KiiTutorialApp-Info.plist";
+				GCC_PREFIX_HEADER = "KiiTutorialApp/MuscleRace-Prefix.pch";
+				INFOPLIST_FILE = "KiiTutorialApp/MuscleRace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MuscleRace;
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -513,7 +513,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9B5B531118338B26000533F9 /* Build configuration list for PBXProject "KiiTutorialApp" */ = {
+		9B5B531118338B26000533F9 /* Build configuration list for PBXProject "MuscleRace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9B5B534618338B27000533F9 /* Debug */,
@@ -522,7 +522,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B5B534818338B27000533F9 /* Build configuration list for PBXNativeTarget "KiiTutorialApp" */ = {
+		9B5B534818338B27000533F9 /* Build configuration list for PBXNativeTarget "MuscleRace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9B5B534918338B27000533F9 /* Debug */,

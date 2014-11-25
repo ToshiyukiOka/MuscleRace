@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9B5B531518338B26000533F9"
-               BuildableName = "KiiTutorialApp.app"
-               BlueprintName = "KiiTutorialApp"
-               ReferencedContainer = "container:KiiTutorialApp.xcodeproj">
+               BuildableName = "MuscleRace.app"
+               BlueprintName = "MuscleRace"
+               ReferencedContainer = "container:MuscleRace.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B5B531518338B26000533F9"
-            BuildableName = "KiiTutorialApp.app"
-            BlueprintName = "KiiTutorialApp"
-            ReferencedContainer = "container:KiiTutorialApp.xcodeproj">
+            BuildableName = "MuscleRace.app"
+            BlueprintName = "MuscleRace"
+            ReferencedContainer = "container:MuscleRace.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B5B531518338B26000533F9"
-            BuildableName = "KiiTutorialApp.app"
-            BlueprintName = "KiiTutorialApp"
-            ReferencedContainer = "container:KiiTutorialApp.xcodeproj">
+            BuildableName = "MuscleRace.app"
+            BlueprintName = "MuscleRace"
+            ReferencedContainer = "container:MuscleRace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B5B531518338B26000533F9"
-            BuildableName = "KiiTutorialApp.app"
-            BlueprintName = "KiiTutorialApp"
-            ReferencedContainer = "container:KiiTutorialApp.xcodeproj">
+            BuildableName = "MuscleRace.app"
+            BlueprintName = "MuscleRace"
+            ReferencedContainer = "container:MuscleRace.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
