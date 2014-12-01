@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) BLE *ble;
 @property (strong, nonatomic) RBLProtocol *protocol;
+@property (strong, nonatomic) IBOutlet UIImageView *countImage;
 
 -(void) processData:(uint8_t *) data length:(uint8_t) length;
 

@@ -42,6 +42,20 @@
     KiiUser *user = [KiiUser currentUser];
     [group addUser:user];
     [group saveSynchronous:&error];
+    KiiBucket *bucket = [group bucketWithName: groupName];
+    // Create an object with key/value pairs
+    KiiObject *object = [bucket createObject];
+    [object setObject:[NSNumber numberWithInt:0]
+               forKey:@"group_count"];
+    [object setObject:@"active"
+               forKey:@"status"];
+    
+    // Save the object
+    [object saveSynchronous:&error];
+    if (error != nil) {
+        // Saving object failed
+        // Please check error description/code to see what went wrong...
+    }
     
     if (error != nil) {
         // Group creation failed

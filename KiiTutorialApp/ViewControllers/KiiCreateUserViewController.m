@@ -11,6 +11,11 @@
 #import "KiiViewUtilities.h"
 #import "KiiCommonUtilities.h"
 #import <KiiSDK/KiiUser.h>
+#import <KiiSDK/KiiBucket.h>
+#import <KiiSDK/Kii.h>
+#import "KiiCreateObjectViewController.h"
+#import "KiiFileUploadViewController.h"
+#import "KiiAppConstants.h"
 
 @interface KiiCreateUserViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *descView;
@@ -50,6 +55,21 @@
             [KiiViewUtilities showFailureHUD:errorMessage withDetailsText:detailedMessage andView:self.view];
         } else {
             [self performSegueWithIdentifier:@"LoginCompleted" sender:self];
+            KiiBucket *bucket = [[KiiUser currentUser] bucketWithName:@"count"];
+            // Create an object with key/value pairs
+            KiiObject *object = [bucket createObject];
+            [object setObject:[NSNumber numberWithInt:0]
+                       forKey:@"count"];
+            [object setObject:@"active"
+                       forKey:@"status"];
+            
+            // Save the object
+            NSError *error;
+            [object saveSynchronous:&error];
+            if (error != nil) {
+                // Saving object failed
+                // Please check error description/code to see what went wrong...
+            }
         }
     }];
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4F1E5F5F1A1093F6006BFB69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1E5F5D1A1093F6006BFB69 /* Main.storyboard */; };
+		4F1EA2691A2C51EE00419DBB /* countTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1EA2671A2C51EE00419DBB /* countTableViewCell.m */; };
+		4F1EA26A1A2C51EE00419DBB /* countTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1EA2681A2C51EE00419DBB /* countTableViewCell.xib */; };
 		4F291F5219E25EBC0043710D /* CellPin.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F291F4519E25EBC0043710D /* CellPin.m */; };
 		4F291F5319E25EBC0043710D /* CellUuid.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F291F4719E25EBC0043710D /* CellUuid.m */; };
 		4F291F5419E25EBC0043710D /* RBLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F291F4919E25EBC0043710D /* RBLAppDelegate.m */; };
@@ -53,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		4F1E5F5E1A1093F6006BFB69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = KiiTutorialApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4F1EA2661A2C51EE00419DBB /* countTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countTableViewCell.h; sourceTree = "<group>"; };
+		4F1EA2671A2C51EE00419DBB /* countTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = countTableViewCell.m; sourceTree = "<group>"; };
+		4F1EA2681A2C51EE00419DBB /* countTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = countTableViewCell.xib; sourceTree = "<group>"; };
 		4F291F4419E25EBC0043710D /* CellPin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellPin.h; path = BLEController/CellPin.h; sourceTree = "<group>"; };
 		4F291F4519E25EBC0043710D /* CellPin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CellPin.m; path = BLEController/CellPin.m; sourceTree = "<group>"; };
 		4F291F4619E25EBC0043710D /* CellUuid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CellUuid.h; path = BLEController/CellUuid.h; sourceTree = "<group>"; };
@@ -238,6 +243,9 @@
 				4F291F4919E25EBC0043710D /* RBLAppDelegate.m */,
 				4F291F4A19E25EBC0043710D /* RBLControlViewController.h */,
 				4F291F4B19E25EBC0043710D /* RBLControlViewController.m */,
+				4F1EA2661A2C51EE00419DBB /* countTableViewCell.h */,
+				4F1EA2671A2C51EE00419DBB /* countTableViewCell.m */,
+				4F1EA2681A2C51EE00419DBB /* countTableViewCell.xib */,
 				4F291F4C19E25EBC0043710D /* RBLDetailViewController.h */,
 				4F291F4D19E25EBC0043710D /* RBLDetailViewController.m */,
 				4F291F4E19E25EBC0043710D /* RBLMainViewController.h */,
@@ -333,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B5B533218338B26000533F9 /* Images.xcassets in Resources */,
+				4F1EA26A1A2C51EE00419DBB /* countTableViewCell.xib in Resources */,
 				4F1E5F5F1A1093F6006BFB69 /* Main.storyboard in Resources */,
 				4F291F5819E25EBC0043710D /* RedBearLab.jpg in Resources */,
 				9B5B532418338B26000533F9 /* InfoPlist.strings in Resources */,
@@ -360,6 +369,7 @@
 				EAB8AF30193888D6000A4590 /* KiiFileAttachDescViewController.m in Sources */,
 				9BA896971835C3120061B1D5 /* KiiViewUtilities.m in Sources */,
 				4F291F5D19E25F100043710D /* BLE.m in Sources */,
+				4F1EA2691A2C51EE00419DBB /* countTableViewCell.m in Sources */,
 				4F291F5619E25EBC0043710D /* RBLDetailViewController.m in Sources */,
 				9B5B533018338B26000533F9 /* KiiFirstViewController.m in Sources */,
 				9B9C41A51834B06C00EDED68 /* KiiCreateUserViewController.m in Sources */,

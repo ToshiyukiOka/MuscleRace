@@ -14,6 +14,7 @@
 #import "RBLControlViewController.h"
 #import "RBLDetailViewController.h"
 #import "RBLMainViewController.h"
+#import "countTableViewCell.h"
 #import "CellPin.h"
 
 uint8_t total_pin_count  = 0;
@@ -27,7 +28,8 @@ uint8_t count = {0};
 
 uint8_t init_done = 0;
 
-Boolean *count_status = false;
+BOOL count_status = false;
+
 
 @interface RBLControlViewController ()
 @end
@@ -54,6 +56,7 @@ Boolean *count_status = false;
     protocol = [[RBLProtocol alloc] init];
     protocol.delegate = self;
     protocol.ble = ble;
+    //countLabel.text = @"筋トレを始めましょう！";
     
     NSLog(@"ControlView: viewDidLoad");
 }
@@ -134,7 +137,7 @@ NSTimer *syncTimer;
 {
     NSLog(@"protocolDidReceiveTotalPinCount: %d", count);
     
-    total_pin_count = count;
+    total_pin_count = 1;//count;
     [protocol queryPinAll];
 }
 
@@ -171,18 +174,22 @@ NSTimer *syncTimer;
     pin_analog[pin] = ((mode >> 4) << 8) + value;
     
     if (pin_analog[pin] > 250) {
-        if (count_status == false)
-        {
+        if(count_status == false){
+            count_status = true;
             count++;
+            if (count > 4){
+                // 画像の読み込み
+                _countImage.image = [UIImage imageNamed:@"title.png"];
+                
+                // UIImageViewのインスタンスをビューに追加
+                [self.view addSubview: _countImage];
+            }
             NSLog(@"%d回", count);
             countLabel.text = [NSString stringWithFormat:@"%d", count];
-            count_status = true;
         }
     }
-    else
-    {
-        if (count_status == true)
-        {
+    else{
+        if (count_status == true){
             count_status = false;
         }
     }
@@ -251,42 +258,20 @@ NSTimer *syncTimer;
     uint8_t pin = indexPath.row;
     
     CellPin *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+
     [cell.lblPin setText:[NSString stringWithFormat:@"%d", pin]];
     [cell.btnMode setTag:pin];
     [cell.sgmHL setTag:pin];
     [cell.sldPWM setTag:pin];
+    current_pin = 14;
+    [protocol setPinMode:current_pin Mode:ANALOG];
     
     // Pin availability
     if (pin_cap[pin] == 0x00)
         [cell setHidden:TRUE];
-    
     // Pin mode
-    if (pin_mode[pin] == INPUT)
-    {
-        [cell.btnMode setTitle:@"Input" forState:UIControlStateNormal];
-        [cell.sgmHL setHidden:FALSE];
-        [cell.sgmHL setEnabled:FALSE];
-        [cell.sgmHL setSelectedSegmentIndex:pin_digital[pin]];
-        [cell.lblAnalog setHidden:TRUE];
-        [cell.sldPWM setHidden:TRUE];
-    }
-    else if (pin_mode[pin] == OUTPUT)
-    {
-        [cell.btnMode setTitle:@"Output" forState:UIControlStateNormal];
-        [cell.sgmHL setHidden:FALSE];
-        [cell.sgmHL setEnabled:TRUE];
-        [cell.sgmHL setSelectedSegmentIndex:pin_digital[pin]];
-        [cell.lblAnalog setHidden:TRUE];
-        [cell.sgmHL setHidden:FALSE];
-        [cell.sldPWM setHidden:TRUE];
-    }
-    else if (pin_mode[pin] == ANALOG)
+    if (pin == 14)
     {   //ここがセンサーの値をリアルタイムに表示している場所
-        [cell.btnMode setTitle:@"Analog" forState:UIControlStateNormal];
-        [cell.lblAnalog setText:[NSString stringWithFormat:@"%d", pin_analog[pin]]];
-        [cell.lblAnalog setHidden:FALSE];
-        [cell.sgmHL setHidden:TRUE];
-        [cell.sldPWM setHidden:TRUE];
         if (pin_analog[pin] > 250) {
             if (count_status == false)
             {
@@ -304,18 +289,6 @@ NSTimer *syncTimer;
             }
         }
     }
-    else if (pin_mode[pin] == PWM)
-    {
-        [cell.btnMode setTitle:@"PWM" forState:UIControlStateNormal];
-        [cell.lblAnalog setText:[NSString stringWithFormat:@"%d", pin_analog[pin]]];
-        [cell.sldPWM setHidden:FALSE];
-        [cell.lblAnalog setHidden:TRUE];
-        [cell.sgmHL setHidden:TRUE];
-        [cell.sldPWM setMinimumValue:0];
-        [cell.sldPWM setMaximumValue:255];
-        [cell.sldPWM setValue:pin_pwm[pin]];
-    }
-    
     return cell;
 }
 
