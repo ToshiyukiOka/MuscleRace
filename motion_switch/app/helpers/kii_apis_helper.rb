@@ -1,2 +1,0 @@
-module KiiApisHelper
-end
