@@ -1,0 +1,4 @@
+# -*- coding: utf-8 -*
+
+KIICLOUD_APP_ID="0c5a7416"
+KIICLOUD_APP_KEY="6f56ee86c60e2141bb9e280fb3d7ad7f"
