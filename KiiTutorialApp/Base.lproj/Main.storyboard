@@ -89,7 +89,7 @@
                                 </connections>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.81460826099999994" blue="0.6195384706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="i34-xp-Vac" firstAttribute="leading" secondItem="No9-nB-IQq" secondAttribute="trailing" constant="6" id="1bN-Ci-dee"/>
                             <constraint firstItem="Enp-Z3-v6l" firstAttribute="top" secondItem="CY2-si-9HO" secondAttribute="top" constant="6" id="3sF-Kc-pNq"/>
@@ -201,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VK5-E9-WsG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2512" y="-141"/>
+            <point key="canvasLocation" x="2337" y="-70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NTW-qX-bPg">
@@ -422,7 +422,7 @@ What you have done so far:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABZ-c5-cf2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2512" y="-790"/>
+            <point key="canvasLocation" x="2337" y="-790"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="pT6-pv-j9y">
@@ -462,7 +462,7 @@ What you have done so far:</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hd-is-NBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="-790"/>
+            <point key="canvasLocation" x="941" y="-790"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tRz-5p-jtk">
