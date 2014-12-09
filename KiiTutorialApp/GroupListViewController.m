@@ -68,6 +68,37 @@
     }
 }
 
+- (IBAction)groupSearchButton:(id)sender {
+    
+    NSError *error;
+    // Get the current login user
+    KiiUser *user = [KiiUser currentUser];
+    [user refreshSynchronous:&error];
+    
+    // Get a list of groups in which the current user is a member
+    NSArray* memberGroups = [user memberOfGroupsSynchronous:&error];
+    if (error == nil) {
+        for (KiiGroup* membergroup in memberGroups) {
+            // do something with each group
+            KiiUserGroup* group = [[KiiUserGroup alloc] init];z
+            group.groupName = membergroup.name;
+            [userGroups addObject:group];
+            
+            // Add user1 and user2 to the group
+            [membergroup addUser:user];
+            [membergroup saveSynchronous:&error];
+            
+            
+            if (error != nil) {
+                // Group add members failed
+                // Please check error description/code to see what went wrong...
+            }
+        }
+    } else {
+        // Getting a group list failed
+        // Please check error description/code to see what went wrong...
+    }
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
