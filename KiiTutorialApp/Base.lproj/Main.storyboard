@@ -17,12 +17,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i34-xp-Vac">
-                                <rect key="frame" x="164" y="253" width="129" height="48"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your Username" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eLo-Cp-0L2">
+                                <rect key="frame" x="25" y="174" width="270" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="n2t-dy-Gby"/>
+                                    <constraint firstAttribute="height" constant="53" id="oce-nM-4f2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kR8-xF-Hkr" id="rub-ct-CwB"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="49B-K2-ydU">
+                                <rect key="frame" x="25" y="237" width="270" height="53"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="3sc-ga-gYO"/>
+                                    <constraint firstAttribute="width" constant="270" id="Cns-BP-VXS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kR8-xF-Hkr" id="cql-zF-QG0"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No9-nB-IQq">
+                                <rect key="frame" x="25" y="310" width="270" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="XCt-K4-UTx"/>
+                                    <constraint firstAttribute="width" constant="270" id="zvi-Gh-TyA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                <state key="normal" title="Sign Up" backgroundImage="blue_normal">
+                                <state key="normal" title="Log In" backgroundImage="button_orange">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="grey_pressed.png"/>
+                                <connections>
+                                    <action selector="mSignInButton:" destination="kR8-xF-Hkr" eventType="touchUpInside" id="rWg-ZI-QRn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i34-xp-Vac">
+                                <rect key="frame" x="25" y="405" width="270" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="1d1-Z4-a8S"/>
+                                    <constraint firstAttribute="height" constant="53" id="81T-c0-CW2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <size key="titleShadowOffset" width="0.0" height="-1"/>
+                                <state key="normal" title="Sign Up" backgroundImage="button_green">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.49489795920000001" green="0.49489795920000001" blue="0.49489795920000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" backgroundImage="orange_pressed.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -31,55 +79,35 @@
                                     <action selector="mSignUpButton:" destination="kR8-xF-Hkr" eventType="touchUpInside" id="ESA-W5-LZu"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your Username (3-64 length)" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eLo-Cp-0L2">
-                                <rect key="frame" x="29" y="142" width="263" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kR8-xF-Hkr" id="rub-ct-CwB"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No9-nB-IQq">
-                                <rect key="frame" x="29" y="252" width="129" height="48"/>
-                                <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                <state key="normal" title="Log In" backgroundImage="orange_normal">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" backgroundImage="grey_pressed.png"/>
-                                <connections>
-                                    <action selector="mSignInButton:" destination="kR8-xF-Hkr" eventType="touchUpInside" id="rWg-ZI-QRn"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Enter your Password (4-50 length)" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="49B-K2-ydU">
-                                <rect key="frame" x="30" y="191" width="263" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kR8-xF-Hkr" id="cql-zF-QG0"/>
-                                </connections>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Enp-Z3-v6l">
-                                <rect key="frame" x="63" y="6" width="253" height="103"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Sign up or LogIn to TutorialApp" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doe-23-Jbf">
-                                <rect key="frame" x="11" y="97" width="299" height="37"/>
-                                <gestureRecognizers/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Enp-Z3-v6l">
+                                <rect key="frame" x="25" y="98" width="270" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="4dH-vD-Uqr"/>
+                                    <constraint firstAttribute="height" constant="36" id="PYy-1a-7HA"/>
+                                    <constraint firstAttribute="width" constant="270" id="xlS-Tw-kwc"/>
                                 </constraints>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="または" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhL-in-cTl">
+                                <rect key="frame" x="133" y="373" width="54" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kR8-xF-Hkr" id="J1f-hZ-g0O"/>
-                                    <outletCollection property="gestureRecognizers" destination="V1x-oh-bqr" appends="YES" id="SVE-G1-9jQ"/>
-                                </connections>
-                            </textView>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="i34-xp-Vac" secondAttribute="centerX" id="8ZF-oX-y3c"/>
+                            <constraint firstAttribute="centerX" secondItem="No9-nB-IQq" secondAttribute="centerX" id="AhX-6r-J0R"/>
+                            <constraint firstItem="eLo-Cp-0L2" firstAttribute="top" secondItem="Enp-Z3-v6l" secondAttribute="bottom" constant="40" id="F5Z-ri-s7f"/>
+                            <constraint firstAttribute="centerX" secondItem="eLo-Cp-0L2" secondAttribute="centerX" id="PIT-YX-Hhq"/>
+                            <constraint firstAttribute="centerX" secondItem="49B-K2-ydU" secondAttribute="centerX" id="RaC-4b-2Kv"/>
+                            <constraint firstAttribute="centerY" secondItem="49B-K2-ydU" secondAttribute="centerY" constant="20" id="T7y-Vh-5xQ"/>
+                            <constraint firstItem="i34-xp-Vac" firstAttribute="top" secondItem="XhL-in-cTl" secondAttribute="bottom" constant="10" id="YRF-fH-SjQ"/>
+                            <constraint firstItem="XhL-in-cTl" firstAttribute="top" secondItem="No9-nB-IQq" secondAttribute="bottom" constant="10" id="iNa-0m-ort"/>
+                            <constraint firstItem="49B-K2-ydU" firstAttribute="top" secondItem="eLo-Cp-0L2" secondAttribute="bottom" constant="10" id="qYc-RK-bOg"/>
+                            <constraint firstAttribute="centerX" secondItem="XhL-in-cTl" secondAttribute="centerX" id="sim-ul-Q2W"/>
+                            <constraint firstAttribute="centerX" secondItem="Enp-Z3-v6l" secondAttribute="centerX" id="uBa-B3-Kw1"/>
+                            <constraint firstItem="No9-nB-IQq" firstAttribute="top" secondItem="49B-K2-ydU" secondAttribute="bottom" constant="20" id="zF9-bF-YNF"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vhz-dw-T6q"/>
                     <connections>
@@ -847,6 +875,8 @@ What you have done so far:</string>
     <resources>
         <image name="RedBearLab.jpg" width="240" height="240"/>
         <image name="blue_normal" width="140" height="40"/>
+        <image name="button_green" width="270" height="53"/>
+        <image name="button_orange" width="270" height="53"/>
         <image name="grey_pressed.png" width="16" height="16"/>
         <image name="logo" width="270" height="36"/>
         <image name="orange_normal" width="140" height="40"/>
