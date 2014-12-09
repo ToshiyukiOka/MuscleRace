@@ -321,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1SI-hm-5Tx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973" y="-790"/>
+            <point key="canvasLocation" x="1967" y="-720"/>
         </scene>
         <!--Kii Tutorial Over View Controller-->
         <scene sceneID="jsE-Xs-r6R">
@@ -486,7 +486,7 @@ What you have done so far:</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Hd-is-NBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="916" y="-795"/>
+            <point key="canvasLocation" x="938" y="-663"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tRz-5p-jtk">
@@ -579,7 +579,7 @@ What you have done so far:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K6f-6q-EPF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1587" y="-790"/>
+            <point key="canvasLocation" x="1587" y="-720"/>
         </scene>
         <!--筋トレ中-->
         <scene sceneID="bwp-hV-RLd">
@@ -664,6 +664,9 @@ What you have done so far:</string>
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="stopCount:" destination="SZA-bT-fWq" eventType="touchUpInside" id="MER-VG-Mkp"/>
+                                    </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fat_level5_normal" translatesAutoresizingMaskIntoConstraints="NO" id="pHd-yk-5Mc">
                                     <rect key="frame" x="45" y="169" width="230" height="165"/>
@@ -771,7 +774,7 @@ What you have done so far:</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ENJ-mD-Dgt" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2258" y="-2180"/>
+            <point key="canvasLocation" x="2279" y="-2212"/>
         </scene>
         <!--Title-->
         <scene sceneID="bgw-rJ-vR9">
@@ -844,7 +847,7 @@ What you have done so far:</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heU-8O-T9z">
-                                <rect key="frame" x="25" y="254.5" width="270" height="53"/>
+                                <rect key="frame" x="25" y="274.5" width="270" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="hFw-Iu-RCI"/>
                                     <constraint firstAttribute="width" constant="270" id="huW-y2-lJ4"/>
@@ -859,10 +862,10 @@ What you have done so far:</string>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-Tg-a7s">
-                                <rect key="frame" x="150" y="214.5" width="20" height="20"/>
+                                <rect key="frame" x="150" y="234.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7F-pt-6wU">
-                                <rect key="frame" x="25" y="327.5" width="270" height="53"/>
+                                <rect key="frame" x="25" y="347.5" width="270" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="S2F-xr-q6E"/>
                                     <constraint firstAttribute="height" constant="53" id="cpC-pe-3Gg"/>
@@ -877,7 +880,7 @@ What you have done so far:</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LT-kE-BQq">
-                                <rect key="frame" x="100" y="420.5" width="119" height="34"/>
+                                <rect key="frame" x="100" y="440.5" width="119" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Change Group">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -888,12 +891,18 @@ What you have done so far:</string>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth_icon" translatesAutoresizingMaskIntoConstraints="NO" id="VZk-a7-iJe">
-                                <rect key="frame" x="110" y="94.5" width="100" height="100"/>
+                                <rect key="frame" x="110" y="114.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="G2B-fT-iSh"/>
                                     <constraint firstAttribute="width" constant="100" id="JBf-dD-gjf"/>
                                 </constraints>
                             </imageView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UzL-9n-ace">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Bluetoothに接続" id="bG4-sW-De0"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -901,7 +910,7 @@ What you have done so far:</string>
                             <constraint firstItem="K7F-pt-6wU" firstAttribute="top" secondItem="heU-8O-T9z" secondAttribute="bottom" constant="20" id="AWq-pH-qU2"/>
                             <constraint firstAttribute="centerX" secondItem="K7F-pt-6wU" secondAttribute="centerX" id="Fg8-VB-Dps"/>
                             <constraint firstAttribute="centerX" secondItem="heU-8O-T9z" secondAttribute="centerX" id="McR-dq-XNi"/>
-                            <constraint firstAttribute="centerY" secondItem="K7F-pt-6wU" secondAttribute="centerY" constant="-70" id="OLE-aq-BZQ"/>
+                            <constraint firstAttribute="centerY" secondItem="K7F-pt-6wU" secondAttribute="centerY" constant="-90" id="OLE-aq-BZQ"/>
                             <constraint firstAttribute="centerX" secondItem="VZk-a7-iJe" secondAttribute="centerX" id="PZl-Tk-Swq"/>
                             <constraint firstAttribute="centerX" secondItem="7LT-kE-BQq" secondAttribute="centerX" id="Z20-Ca-t22"/>
                             <constraint firstAttribute="centerX" secondItem="a1D-Tg-a7s" secondAttribute="centerX" id="ef0-zk-DJe"/>
