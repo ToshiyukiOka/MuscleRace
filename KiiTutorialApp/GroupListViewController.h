@@ -12,7 +12,7 @@
 @interface GroupListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *groups;
-@property (nonatomic, strong) IBOutlet UITextField *groupSearchField;
+@property (nonatomic, nonatomic) IBOutlet UITextField *groupSearchField;
 @property (nonatomic, strong) IBOutlet UIButton *groupSearchButton;
 
 + (id)userGroupList;

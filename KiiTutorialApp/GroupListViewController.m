@@ -22,10 +22,12 @@
     NSString* selectedData;
     NSDictionary *listDict;
     NSMutableArray *userGroups;
+    NSString* groupName;
 }
 @end
 
 @implementation GroupListViewController
+@synthesize groupSearchField;
 
 - (void)viewDidLoad
 {
@@ -68,36 +70,21 @@
     }
 }
 
-- (IBAction)groupSearchButton:(id)sender {
-    
+- (IBAction)groupSearchButton:(id)sender{
+    NSLog(@"%s","11111111");
     NSError *error;
     // Get the current login user
     KiiUser *user = [KiiUser currentUser];
     [user refreshSynchronous:&error];
     
+    NSString *groupName = self.groupSearchField.text;
+    NSLog(@"%@", groupName);
+    
     // Get a list of groups in which the current user is a member
-    NSArray* memberGroups = [user memberOfGroupsSynchronous:&error];
-    if (error == nil) {
-        for (KiiGroup* membergroup in memberGroups) {
-            // do something with each group
-            KiiUserGroup* group = [[KiiUserGroup alloc] init];
-            group.groupName = membergroup.name;
-            [userGroups addObject:group];
-            
-            // Add user1 and user2 to the group
-            [membergroup addUser:user];
-            [membergroup saveSynchronous:&error];
-            
-            
-            if (error != nil) {
-                // Group add members failed
-                // Please check error description/code to see what went wrong...
-            }
-        }
-    } else {
-        // Getting a group list failed
-        // Please check error description/code to see what went wrong...
-    }
+    //KiiGroup* group = [KiiGroup groupWithName: groupName];
+    
+    //[group addUser:user];
+    //[group saveSynchronous:&error];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -108,17 +95,27 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListPrototypeCell" forIndexPath:indexPath];
-    KiiUserGroup *userGroup = [userGroups objectAtIndex:indexPath.row];
-    cell.textLabel.text = userGroup.groupName;
+    UITableViewCell *cell;
+    if ( indexPath.row == 0 ) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"groupSearchCell" forIndexPath:indexPath];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"groupListCell" forIndexPath:indexPath];
+        KiiUserGroup *userGroup = [userGroups objectAtIndex:indexPath.row];
+        cell.textLabel.text = userGroup.groupName;
+    }
     return cell;
 }
 
 // Cell が選択された時
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath*) indexPath{
-    selectedData = [groupDatas objectAtIndex:indexPath.row];
-    // toViewController
-    [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
+    if (indexPath.row != 0){
+        selectedData = [groupDatas objectAtIndex:indexPath.row];
+        // toViewController
+        [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
+    }else{
+        NSLog(@"%s","2222222");
+        return;
+    }
 }
 
 @end
