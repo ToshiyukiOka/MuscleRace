@@ -520,15 +520,17 @@ What you have done so far:</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8o-3h-VNc">
-                                <rect key="frame" x="90" y="272" width="140" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8o-3h-VNc">
+                                <rect key="frame" x="25" y="124" width="270" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="Rc6-Po-Je6"/>
+                                    <constraint firstAttribute="height" constant="53" id="Rc6-Po-Je6"/>
+                                    <constraint firstAttribute="width" constant="270" id="yC8-NS-fS7"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                <state key="normal" title="Create Group" backgroundImage="orange_normal">
+                                <state key="normal" title="Create Group" backgroundImage="button_orange">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="selected" backgroundImage="grey_pressed.png"/>
                                 <connections>
@@ -542,34 +544,30 @@ What you have done so far:</string>
                                     <constraint firstAttribute="width" constant="102" id="DiH-Dt-Ruf"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Create an application scope object" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhq-gu-aBo">
-                                <rect key="frame" x="10" y="134" width="300" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Mml-ZQ-fN4"/>
-                                </constraints>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8V-Wi-pwa">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U8V-Wi-pwa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="グループ新規登録" id="8dl-ob-58b"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter group name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fJC-rS-ES7">
-                                <rect key="frame" x="42" y="211" width="237" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter group name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fJC-rS-ES7">
+                                <rect key="frame" x="25" y="64" width="270" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AX9-qR-mSu"/>
+                                    <constraint firstAttribute="width" constant="270" id="cd3-Q8-7hl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.81460826099999994" blue="0.6195384706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mhq-gu-aBo" firstAttribute="centerX" secondItem="w8o-3h-VNc" secondAttribute="centerX" id="1Lw-fs-QKa"/>
-                            <constraint firstItem="w8o-3h-VNc" firstAttribute="top" secondItem="mhq-gu-aBo" secondAttribute="bottom" constant="48" id="6ru-IB-Dr9"/>
                             <constraint firstItem="w8o-3h-VNc" firstAttribute="centerX" secondItem="nHB-pM-cfv" secondAttribute="centerX" id="FB8-Ug-JRo"/>
-                            <constraint firstItem="mhq-gu-aBo" firstAttribute="leading" secondItem="hdQ-pf-VEC" secondAttribute="leading" constant="10" id="eb7-DX-CJI"/>
+                            <constraint firstItem="w8o-3h-VNc" firstAttribute="top" secondItem="fJC-rS-ES7" secondAttribute="bottom" constant="20" id="QRV-Ak-VR4"/>
                             <constraint firstItem="nHB-pM-cfv" firstAttribute="centerX" secondItem="hdQ-pf-VEC" secondAttribute="centerX" id="ppC-DI-X9s"/>
+                            <constraint firstItem="fJC-rS-ES7" firstAttribute="top" secondItem="U8V-Wi-pwa" secondAttribute="bottom" constant="20" id="qDs-9N-exv"/>
+                            <constraint firstAttribute="centerX" secondItem="fJC-rS-ES7" secondAttribute="centerX" id="udO-rC-dXj"/>
+                            <constraint firstAttribute="centerX" secondItem="w8o-3h-VNc" secondAttribute="centerX" id="vNc-fH-a36"/>
                             <constraint firstAttribute="bottom" secondItem="nHB-pM-cfv" secondAttribute="bottom" constant="20" symbolic="YES" id="z5z-d0-gnv"/>
                         </constraints>
                     </view>
@@ -845,9 +843,15 @@ What you have done so far:</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heU-8O-T9z">
-                                <rect key="frame" x="20" y="375" width="280" height="30"/>
-                                <state key="normal" title="Scan">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heU-8O-T9z">
+                                <rect key="frame" x="25" y="184" width="270" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="hFw-Iu-RCI"/>
+                                    <constraint firstAttribute="width" constant="270" id="huW-y2-lJ4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Scan" backgroundImage="button_orange">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -855,20 +859,28 @@ What you have done so far:</string>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-Tg-a7s">
-                                <rect key="frame" x="150" y="342" width="20" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7F-pt-6wU">
-                                <rect key="frame" x="20" y="413" width="280" height="30"/>
-                                <state key="normal" title="Connect Last">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7F-pt-6wU">
+                                <rect key="frame" x="25" y="257" width="270" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="S2F-xr-q6E"/>
+                                    <constraint firstAttribute="height" constant="53" id="cpC-pe-3Gg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Connect Last" backgroundImage="button_green">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="lastClick:" destination="ghI-oc-0hb" eventType="touchUpInside" id="sYn-mm-KbQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LT-kE-BQq">
-                                <rect key="frame" x="110" y="451" width="101" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LT-kE-BQq">
+                                <rect key="frame" x="100.5" y="350" width="119" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Change Group">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -877,6 +889,14 @@ What you have done so far:</string>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="K7F-pt-6wU" firstAttribute="top" secondItem="heU-8O-T9z" secondAttribute="bottom" constant="20" id="AWq-pH-qU2"/>
+                            <constraint firstAttribute="centerX" secondItem="K7F-pt-6wU" secondAttribute="centerX" id="Fg8-VB-Dps"/>
+                            <constraint firstAttribute="centerX" secondItem="7LT-kE-BQq" secondAttribute="centerX" id="Ldb-41-BsF"/>
+                            <constraint firstAttribute="centerX" secondItem="heU-8O-T9z" secondAttribute="centerX" id="McR-dq-XNi"/>
+                            <constraint firstItem="7LT-kE-BQq" firstAttribute="top" secondItem="K7F-pt-6wU" secondAttribute="bottom" constant="40" id="Sac-WF-f0z"/>
+                            <constraint firstAttribute="centerY" secondItem="K7F-pt-6wU" secondAttribute="centerY" id="cb5-K3-9Ue"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BLE Controller" id="Dh2-ap-hfu"/>
                     <connections>
@@ -929,7 +949,7 @@ What you have done so far:</string>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Tro-bv-nDc"/>
         <segue reference="bri-aB-XEe"/>
+        <segue reference="vxm-Dw-L7z"/>
     </inferredMetricsTieBreakers>
 </document>
