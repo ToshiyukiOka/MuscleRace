@@ -57,8 +57,6 @@
             group.groupName = membergroup.name;
             [groupNameLists addObject:[NSString stringWithFormat:@"%@",membergroup.name]];
             [userGroups addObject:group];
-            NSLog(@"GROUP_NAME:%d", [groupNameLists count]);
-            NSLog(@"USER_GROUP:%d", [userGroups count]);
             
             // Add user1 and user2 to the group
             [membergroup addUser:user];
@@ -93,13 +91,34 @@
     
     int groupIndex = [groupNameLists indexOfObject: groupName];
     if (groupIndex != 2147483647){
+        //既存のgroupにジョインした場合
         KiiGroup* group = [KiiGroup groupWithName: groupName];
-        [group addUser:user];
-        [group saveSynchronous:&error];
+        
         // toViewController
         [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
     }else{
-        return;
+        //新しくグループを作成した場合
+        KiiGroup* group = [KiiGroup groupWithName: groupName];
+        [group addUser:user];
+        [group saveSynchronous:&error];
+        
+        // Create Application Scope Bucket
+        KiiBucket *bucket = [Kii bucketWithName: groupName];
+        // Create an object with key/value pairs
+        
+        KiiObject *object = [bucket createObject];
+        
+        [object setObject:[NSNumber numberWithInt: 0]
+                   forKey:@"group_count"];
+        [object setObject:object.uuid
+                   forKey:@"object_id"];
+        [object setObject:groupName
+                   forKey:@"bucket_name"];
+        
+        // Save the object
+        [object saveSynchronous:&error];
+        // toViewController
+        [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
     }
 }
 
@@ -128,7 +147,7 @@
 // Cell が選択された時
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath*) indexPath{
     if (indexPath.row != 0){
-        selectedData = [groupDatas objectAtIndex:indexPath.row];
+        KiiGroup *userGroup = [userGroups objectAtIndex:indexPath.row+1];
         // toViewController
         [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
     }else{
