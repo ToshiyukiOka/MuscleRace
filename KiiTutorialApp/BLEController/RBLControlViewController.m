@@ -58,6 +58,8 @@ BOOL count_status = false;
     protocol.ble = ble;
     //countLabel.text = @"筋トレを始めましょう！";
     
+    
+    
     NSLog(@"ControlView: viewDidLoad");
 }
 
@@ -109,6 +111,23 @@ NSTimer *syncTimer;
     
     [[ble CM] cancelPeripheralConnection:[ble activePeripheral]];
 }
+
+- (IBAction)stopCount:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"今日のトレーニング結果\n129回"
+        message:@""
+        preferredStyle:UIAlertControllerStyleAlert];
+    
+    // addActionした順に左から右にボタンが配置されます
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        // otherボタンが押された時の処理
+//        [self otherButtonPushed];
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+//    - (void)cancelButtonPushed {}
+//    - (void)otherBUttonPushed {}
+ }
 
 -(void) processData:(uint8_t *) data length:(uint8_t) length
 {
@@ -251,6 +270,7 @@ NSTimer *syncTimer;
 {
     return total_pin_count;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

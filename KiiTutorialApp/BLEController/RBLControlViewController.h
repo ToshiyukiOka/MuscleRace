@@ -25,6 +25,8 @@
 @property (strong, nonatomic) RBLProtocol *protocol;
 @property (strong, nonatomic) IBOutlet UIImageView *countImage;
 
+- (IBAction)stopCount:(id)sender;
+
 -(void) processData:(uint8_t *) data length:(uint8_t) length;
 
 @end
