@@ -51,6 +51,8 @@
 		EAB8AF2A1938737C000A4590 /* KiiUserDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB8AF291938737C000A4590 /* KiiUserDescViewController.m */; };
 		EAB8AF2D19388459000A4590 /* KiiFileCreateDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB8AF2C19388459000A4590 /* KiiFileCreateDescViewController.m */; };
 		EAB8AF30193888D6000A4590 /* KiiFileAttachDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB8AF2F193888D6000A4590 /* KiiFileAttachDescViewController.m */; };
+		F344C3CD1A371E0D00A82444 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = F344C3CB1A371E0D00A82444 /* Fire.sks */; };
+		F344C3CE1A371E0D00A82444 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F344C3CC1A371E0D00A82444 /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,8 @@
 		EAB8AF2C19388459000A4590 /* KiiFileCreateDescViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KiiFileCreateDescViewController.m; path = ViewControllers/KiiFileCreateDescViewController.m; sourceTree = "<group>"; };
 		EAB8AF2E193888D6000A4590 /* KiiFileAttachDescViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KiiFileAttachDescViewController.h; path = ViewControllers/KiiFileAttachDescViewController.h; sourceTree = "<group>"; };
 		EAB8AF2F193888D6000A4590 /* KiiFileAttachDescViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KiiFileAttachDescViewController.m; path = ViewControllers/KiiFileAttachDescViewController.m; sourceTree = "<group>"; };
+		F344C3CB1A371E0D00A82444 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
+		F344C3CC1A371E0D00A82444 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 		9B5B530D18338B26000533F9 = {
 			isa = PBXGroup;
 			children = (
+				F344C3CB1A371E0D00A82444 /* Fire.sks */,
+				F344C3CC1A371E0D00A82444 /* spark.png */,
 				4F2D14861A1795260060A9D9 /* KiiUserGroup.h */,
 				4F2D14871A1795260060A9D9 /* KiiUserGroup.m */,
 				4F1E5F5D1A1093F6006BFB69 /* Main.storyboard */,
@@ -340,10 +346,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F344C3CD1A371E0D00A82444 /* Fire.sks in Resources */,
 				9B5B533218338B26000533F9 /* Images.xcassets in Resources */,
 				4F1EA26A1A2C51EE00419DBB /* countTableViewCell.xib in Resources */,
 				4F1E5F5F1A1093F6006BFB69 /* Main.storyboard in Resources */,
 				4F291F5819E25EBC0043710D /* RedBearLab.jpg in Resources */,
+				F344C3CE1A371E0D00A82444 /* spark.png in Resources */,
 				9B5B532418338B26000533F9 /* InfoPlist.strings in Resources */,
 				4F291F5919E25EBC0043710D /* title.png in Resources */,
 			);

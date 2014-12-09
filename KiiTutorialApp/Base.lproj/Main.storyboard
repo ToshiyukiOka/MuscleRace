@@ -620,7 +620,7 @@ What you have done so far:</string>
         <scene sceneID="MGz-t1-gej">
             <objects>
                 <tableViewController title="Master" id="SZA-bT-fWq" customClass="RBLControlViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="image_cell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="UlX-v3-kzl">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="image_cell" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="0.0" sectionHeaderHeight="22" sectionFooterHeight="22" id="UlX-v3-kzl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -673,27 +673,21 @@ What you have done so far:</string>
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cell_pin" rowHeight="60" id="Tah-Qh-vWr" customClass="CellPin">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="cell_pin" rowHeight="0.0" id="Tah-Qh-vWr" customClass="CellPin">
                                 <rect key="frame" x="0.0" y="86" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tah-Qh-vWr" id="fbd-2U-wKM">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNL-qB-DbR">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNL-qB-DbR">
                                             <rect key="frame" x="25" y="19" width="42" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="eKm-Qs-RBy"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7U-zV-tzd">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7U-zV-tzd">
                                             <rect key="frame" x="83" y="12" width="86" height="32"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="86" id="lAW-dY-O4K"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                             <state key="normal" title="Input">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -702,11 +696,8 @@ What you have done so far:</string>
                                                 <action selector="modeChange:" destination="SZA-bT-fWq" eventType="touchUpInside" id="NE5-cR-jTF"/>
                                             </connections>
                                         </button>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CPv-DM-Vdh">
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CPv-DM-Vdh">
                                             <rect key="frame" x="209" y="15" width="84" height="29"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="84" id="19P-0N-B5D"/>
-                                            </constraints>
                                             <segments>
                                                 <segment title="L"/>
                                                 <segment title="H"/>
@@ -715,41 +706,21 @@ What you have done so far:</string>
                                                 <action selector="toggleHL:" destination="SZA-bT-fWq" eventType="valueChanged" id="Ura-KY-khy"/>
                                             </connections>
                                         </segmentedControl>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="127.5" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="w1d-lp-mDI">
+                                        <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="127.5" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="w1d-lp-mDI">
                                             <rect key="frame" x="192" y="19" width="118" height="31"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="114" id="185-Mh-xNf"/>
-                                            </constraints>
                                             <connections>
                                                 <action selector="sliderChange:" destination="SZA-bT-fWq" eventType="valueChanged" id="YkV-Ly-g6h"/>
                                                 <action selector="sliderTouchUp:" destination="SZA-bT-fWq" eventType="touchUpInside" id="Kg0-TH-2Kk"/>
                                             </connections>
                                         </slider>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlL-Ki-MIS">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlL-Ki-MIS">
                                             <rect key="frame" x="231" y="19" width="42" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="SlM-rm-DQg"/>
-                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="NlL-Ki-MIS" secondAttribute="bottom" constant="20" id="4vB-dw-pei"/>
-                                    <constraint firstItem="NlL-Ki-MIS" firstAttribute="centerY" secondItem="CPv-DM-Vdh" secondAttribute="centerY" id="8HB-MC-A79"/>
-                                    <constraint firstItem="NlL-Ki-MIS" firstAttribute="baseline" secondItem="CPv-DM-Vdh" secondAttribute="baseline" id="KXq-gD-tUa"/>
-                                    <constraint firstItem="x7U-zV-tzd" firstAttribute="leading" secondItem="Tah-Qh-vWr" secondAttribute="leading" constant="83" id="KyC-1j-nFI"/>
-                                    <constraint firstItem="CPv-DM-Vdh" firstAttribute="bottom" secondItem="x7U-zV-tzd" secondAttribute="bottom" constant="-1" id="OXr-7e-5b7"/>
-                                    <constraint firstItem="w1d-lp-mDI" firstAttribute="top" secondItem="NlL-Ki-MIS" secondAttribute="top" id="Uaa-7o-PhE"/>
-                                    <constraint firstItem="NlL-Ki-MIS" firstAttribute="baseline" secondItem="x7U-zV-tzd" secondAttribute="baseline" constant="2" id="Xgg-bV-gve"/>
-                                    <constraint firstItem="jNL-qB-DbR" firstAttribute="leading" secondItem="Tah-Qh-vWr" secondAttribute="leading" constant="25" id="YhK-x2-nI4"/>
-                                    <constraint firstAttribute="trailing" secondItem="w1d-lp-mDI" secondAttribute="trailing" constant="12" id="qKr-lU-agb"/>
-                                    <constraint firstAttribute="trailing" secondItem="NlL-Ki-MIS" secondAttribute="trailing" constant="47" id="rAx-ct-7dC"/>
-                                    <constraint firstItem="CPv-DM-Vdh" firstAttribute="centerX" secondItem="w1d-lp-mDI" secondAttribute="centerX" id="wWP-h3-YpK"/>
-                                    <constraint firstAttribute="bottom" secondItem="jNL-qB-DbR" secondAttribute="bottom" constant="20" id="z6z-wN-x0z"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="btnMode" destination="x7U-zV-tzd" id="AeE-LG-0XK"/>
                                     <outlet property="lblAnalog" destination="NlL-Ki-MIS" id="4Yz-cS-bVE"/>

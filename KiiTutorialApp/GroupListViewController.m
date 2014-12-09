@@ -80,7 +80,7 @@
     if (error == nil) {
         for (KiiGroup* membergroup in memberGroups) {
             // do something with each group
-            KiiUserGroup* group = [[KiiUserGroup alloc] init];z
+            KiiUserGroup* group = [[KiiUserGroup alloc] init];
             group.groupName = membergroup.name;
             [userGroups addObject:group];
             

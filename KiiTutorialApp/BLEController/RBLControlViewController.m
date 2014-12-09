@@ -58,6 +58,8 @@ BOOL count_status = false;
     protocol.ble = ble;
     //countLabel.text = @"筋トレを始めましょう！";
     
+    
+    
     NSLog(@"ControlView: viewDidLoad");
 }
 
@@ -251,6 +253,8 @@ NSTimer *syncTimer;
 {
     return total_pin_count;
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
