@@ -22,12 +22,14 @@
     NSString* selectedData;
     NSDictionary *listDict;
     NSMutableArray *userGroups;
+    NSMutableArray *groupNameLists;
     NSString* groupName;
 }
 @end
 
 @implementation GroupListViewController
 @synthesize groupSearchField;
+@synthesize groupSearchButton;
 
 - (void)viewDidLoad
 {
@@ -35,6 +37,7 @@
     [super viewDidLoad];
     //groupDatas = [[NSArray alloc] initWithObjects:@"アトラエ", @"サイバーエージェント", @"Gunosy", @"リッチメディア", @"楽天", nil];
     userGroups = [[NSMutableArray alloc] init];
+    groupNameLists = [[NSMutableArray alloc] init];
     [self loadInitialData];
 }
 
@@ -52,7 +55,10 @@
             // do something with each group
             KiiUserGroup* group = [[KiiUserGroup alloc] init];
             group.groupName = membergroup.name;
+            [groupNameLists addObject:[NSString stringWithFormat:@"%@",membergroup.name]];
             [userGroups addObject:group];
+            NSLog(@"GROUP_NAME:%d", [groupNameLists count]);
+            NSLog(@"USER_GROUP:%d", [userGroups count]);
             
             // Add user1 and user2 to the group
             [membergroup addUser:user];
@@ -70,27 +76,31 @@
     }
 }
 
-- (IBAction)groupSearchButton:(id)sender{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [userGroups count];
+}
+
+-(void)btnClicked {
     NSLog(@"%s","11111111");
     NSError *error;
     // Get the current login user
     KiiUser *user = [KiiUser currentUser];
     [user refreshSynchronous:&error];
     
-    NSString *groupName = self.groupSearchField.text;
-    NSLog(@"%@", groupName);
+    groupName = groupSearchField.text;
     
-    // Get a list of groups in which the current user is a member
-    //KiiGroup* group = [KiiGroup groupWithName: groupName];
-    
-    //[group addUser:user];
-    //[group saveSynchronous:&error];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [userGroups count];
+    int groupIndex = [groupNameLists indexOfObject: groupName];
+    if (groupIndex != 2147483647){
+        KiiGroup* group = [KiiGroup groupWithName: groupName];
+        [group addUser:user];
+        [group saveSynchronous:&error];
+        // toViewController
+        [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
+    }else{
+        return;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,6 +108,15 @@
     UITableViewCell *cell;
     if ( indexPath.row == 0 ) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"groupSearchCell" forIndexPath:indexPath];
+        
+        groupSearchField = (UITextField*)[cell.contentView viewWithTag:3];
+        groupSearchButton = (UIButton*)[cell.contentView viewWithTag:4];
+        
+        [groupSearchButton addTarget:self action:@selector(btnClicked)
+        forControlEvents:UIControlEventTouchUpInside];
+        [groupSearchButton setTitleColor: [UIColor blueColor] forState:
+        UIControlStateNormal];
+        [cell addSubview:groupSearchButton];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"groupListCell" forIndexPath:indexPath];
         KiiUserGroup *userGroup = [userGroups objectAtIndex:indexPath.row];
@@ -113,7 +132,6 @@
         // toViewController
         [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
     }else{
-        NSLog(@"%s","2222222");
         return;
     }
 }
