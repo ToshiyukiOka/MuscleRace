@@ -46,7 +46,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No9-nB-IQq">
                                 <rect key="frame" x="25" y="310" width="270" height="53"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="XCt-K4-UTx"/>
                                     <constraint firstAttribute="width" constant="270" id="zvi-Gh-TyA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -62,10 +61,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i34-xp-Vac">
                                 <rect key="frame" x="25" y="405" width="270" height="53"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="1d1-Z4-a8S"/>
-                                    <constraint firstAttribute="height" constant="53" id="81T-c0-CW2"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
                                 <state key="normal" title="Sign Up" backgroundImage="button_green">
@@ -81,10 +76,6 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Enp-Z3-v6l">
                                 <rect key="frame" x="25" y="98" width="270" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="PYy-1a-7HA"/>
-                                    <constraint firstAttribute="width" constant="270" id="xlS-Tw-kwc"/>
-                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="または" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhL-in-cTl">
                                 <rect key="frame" x="133" y="373" width="54" height="21.5"/>
