@@ -844,7 +844,7 @@ What you have done so far:</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heU-8O-T9z">
-                                <rect key="frame" x="25" y="184" width="270" height="53"/>
+                                <rect key="frame" x="25" y="254.5" width="270" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="hFw-Iu-RCI"/>
                                     <constraint firstAttribute="width" constant="270" id="huW-y2-lJ4"/>
@@ -858,11 +858,11 @@ What you have done so far:</string>
                                     <action selector="btnConnectClicked:" destination="ghI-oc-0hb" eventType="touchUpInside" id="y0Z-29-1D0"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-Tg-a7s">
-                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-Tg-a7s">
+                                <rect key="frame" x="150" y="214.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7F-pt-6wU">
-                                <rect key="frame" x="25" y="257" width="270" height="53"/>
+                                <rect key="frame" x="25" y="327.5" width="270" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="S2F-xr-q6E"/>
                                     <constraint firstAttribute="height" constant="53" id="cpC-pe-3Gg"/>
@@ -877,7 +877,7 @@ What you have done so far:</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LT-kE-BQq">
-                                <rect key="frame" x="100.5" y="350" width="119" height="34"/>
+                                <rect key="frame" x="100" y="420.5" width="119" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Change Group">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -887,15 +887,26 @@ What you have done so far:</string>
                                     <segue destination="22k-MY-7rs" kind="modal" id="vxm-Dw-L7z"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth_icon" translatesAutoresizingMaskIntoConstraints="NO" id="VZk-a7-iJe">
+                                <rect key="frame" x="110" y="94.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="G2B-fT-iSh"/>
+                                    <constraint firstAttribute="width" constant="100" id="JBf-dD-gjf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="7LT-kE-BQq" firstAttribute="top" secondItem="K7F-pt-6wU" secondAttribute="bottom" constant="40" id="4zb-7J-39X"/>
                             <constraint firstItem="K7F-pt-6wU" firstAttribute="top" secondItem="heU-8O-T9z" secondAttribute="bottom" constant="20" id="AWq-pH-qU2"/>
                             <constraint firstAttribute="centerX" secondItem="K7F-pt-6wU" secondAttribute="centerX" id="Fg8-VB-Dps"/>
-                            <constraint firstAttribute="centerX" secondItem="7LT-kE-BQq" secondAttribute="centerX" id="Ldb-41-BsF"/>
                             <constraint firstAttribute="centerX" secondItem="heU-8O-T9z" secondAttribute="centerX" id="McR-dq-XNi"/>
-                            <constraint firstItem="7LT-kE-BQq" firstAttribute="top" secondItem="K7F-pt-6wU" secondAttribute="bottom" constant="40" id="Sac-WF-f0z"/>
-                            <constraint firstAttribute="centerY" secondItem="K7F-pt-6wU" secondAttribute="centerY" id="cb5-K3-9Ue"/>
+                            <constraint firstAttribute="centerY" secondItem="K7F-pt-6wU" secondAttribute="centerY" constant="-70" id="OLE-aq-BZQ"/>
+                            <constraint firstAttribute="centerX" secondItem="VZk-a7-iJe" secondAttribute="centerX" id="PZl-Tk-Swq"/>
+                            <constraint firstAttribute="centerX" secondItem="7LT-kE-BQq" secondAttribute="centerX" id="Z20-Ca-t22"/>
+                            <constraint firstAttribute="centerX" secondItem="a1D-Tg-a7s" secondAttribute="centerX" id="ef0-zk-DJe"/>
+                            <constraint firstItem="heU-8O-T9z" firstAttribute="top" secondItem="a1D-Tg-a7s" secondAttribute="bottom" constant="20" id="tyK-F7-GzR"/>
+                            <constraint firstItem="a1D-Tg-a7s" firstAttribute="top" secondItem="VZk-a7-iJe" secondAttribute="bottom" constant="20" id="wEH-pK-0g5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="BLE Controller" id="Dh2-ap-hfu"/>
@@ -910,7 +921,7 @@ What you have done so far:</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvl-hS-wqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2022" y="-1423"/>
+            <point key="canvasLocation" x="2030" y="-1423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yod-cA-aAY">
@@ -931,6 +942,7 @@ What you have done so far:</string>
     </scenes>
     <resources>
         <image name="blue_normal" width="140" height="40"/>
+        <image name="bluetooth_icon" width="100" height="100"/>
         <image name="button_green" width="270" height="53"/>
         <image name="button_orange" width="270" height="53"/>
         <image name="button_red_mini" width="160" height="53"/>
