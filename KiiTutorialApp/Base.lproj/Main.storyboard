@@ -547,7 +547,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="countLabel" destination="YdK-1c-nXO" id="yXC-df-MNV"/>
+                        <outlet property="countLabel" destination="YdK-1c-nXO" id="Xcp-mS-kmZ"/>
                         <outlet property="tv" destination="UlX-v3-kzl" id="8ak-Aj-BVZ"/>
                     </connections>
                 </tableViewController>
@@ -726,23 +726,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zLp-UF-dUH" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1447" y="-1491"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="j86-TI-3rJ">
-            <objects>
-                <viewController id="vag-Oe-mBN" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZA2-6C-jae"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zzk-nD-hre"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="in1-eS-vAD">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="T7m-Lo-AMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
