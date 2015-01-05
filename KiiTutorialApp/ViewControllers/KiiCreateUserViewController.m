@@ -32,6 +32,41 @@
     singleTap.numberOfTouchesRequired = 1;
     [self.descView addGestureRecognizer:singleTap];
     [self.descView setUserInteractionEnabled:YES];
+    
+    
+    
+    
+    
+    
+    
+    
+    // ラベルをビューの中心に貼り付ける
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 100.0, 30.0)];
+    label.text = @"Blink";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.center = self.view.center;
+    [self.view addSubview:label];
+    
+    // ラベルをフェードイン、フェードアウトさせるアニメーションを開始する
+    CABasicAnimation* blink = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    blink.duration = 0.3;
+    blink.autoreverses = YES;
+    blink.fromValue = @1.0;
+    blink.toValue = @3.0;
+    blink.repeatCount = HUGE_VALF;
+    blink.fillMode = kCAFillModeBoth;
+    blink.delegate = self;
+    [label.layer addAnimation:blink forKey:@"MyAnimation"];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 - (IBAction)mSignUpButton:(id)sender {
