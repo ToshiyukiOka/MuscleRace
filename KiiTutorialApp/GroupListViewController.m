@@ -94,6 +94,10 @@
         //既存のgroupにジョインした場合
         KiiGroup* group = [KiiGroup groupWithName: groupName];
         
+        //グループネームをNSUDに保存
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:groupName forKey:@"group_name"];
+        
         // toViewController
         [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
     }else{

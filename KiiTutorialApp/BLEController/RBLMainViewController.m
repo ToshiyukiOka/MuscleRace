@@ -40,6 +40,9 @@ RBLControlViewController *cv;
 
 - (void)viewDidLoad
 {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *group_name = [userDefaults objectForKey:@"group_name"];
+    groupName.text = group_name;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     

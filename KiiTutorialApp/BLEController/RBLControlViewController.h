@@ -19,6 +19,8 @@
 {
     IBOutlet UITableView *tv;
     IBOutlet UILabel *countLabel;
+    IBOutlet UILabel *totalCountLabel;
+    IBOutlet UILabel *personalCountLabel;
 }
 
 @property (strong, nonatomic) BLE *ble;

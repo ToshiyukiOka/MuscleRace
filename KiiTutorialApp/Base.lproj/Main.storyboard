@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Kii Create User View Controller-->
@@ -546,6 +548,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="countLabel" destination="YdK-1c-nXO" id="yXC-df-MNV"/>
+                        <outlet property="personalCountLabel" destination="FrI-EF-IQA" id="aGw-OB-Dor"/>
+                        <outlet property="totalCountLabel" destination="HuS-fW-GX8" id="QEA-Qr-aEW"/>
                         <outlet property="tv" destination="UlX-v3-kzl" id="8ak-Aj-BVZ"/>
                     </connections>
                 </tableViewController>
@@ -624,7 +628,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heU-8O-T9z">
-                                <rect key="frame" x="25" y="274.5" width="270" height="53"/>
+                                <rect key="frame" x="25" y="274" width="270" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="hFw-Iu-RCI"/>
                                     <constraint firstAttribute="width" constant="270" id="huW-y2-lJ4"/>
@@ -639,10 +643,10 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="a1D-Tg-a7s">
-                                <rect key="frame" x="150" y="234.5" width="20" height="20"/>
+                                <rect key="frame" x="150" y="234" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7F-pt-6wU">
-                                <rect key="frame" x="25" y="347.5" width="270" height="53"/>
+                                <rect key="frame" x="25" y="347" width="270" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="S2F-xr-q6E"/>
                                     <constraint firstAttribute="height" constant="53" id="cpC-pe-3Gg"/>
@@ -657,7 +661,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LT-kE-BQq">
-                                <rect key="frame" x="100" y="440.5" width="119" height="34"/>
+                                <rect key="frame" x="100" y="440" width="119" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Change Group">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -668,7 +672,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetooth_icon" translatesAutoresizingMaskIntoConstraints="NO" id="VZk-a7-iJe">
-                                <rect key="frame" x="110" y="114.5" width="100" height="100"/>
+                                <rect key="frame" x="110" y="114" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="G2B-fT-iSh"/>
                                     <constraint firstAttribute="width" constant="100" id="JBf-dD-gjf"/>
@@ -680,6 +684,12 @@
                                     <navigationItem title="Bluetoothに接続" id="bG4-sW-De0"/>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jj9-he-vCX">
+                                <rect key="frame" x="16" y="68" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.3803921569" green="0.70196078429999997" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -700,6 +710,7 @@
                         <outlet property="activityScanning" destination="a1D-Tg-a7s" id="bJK-ID-pDR"/>
                         <outlet property="btnConnect" destination="heU-8O-T9z" id="lES-Kw-V6Z"/>
                         <outlet property="btnConnectLast" destination="K7F-pt-6wU" id="zVY-rf-EXc"/>
+                        <outlet property="groupName" destination="Jj9-he-vCX" id="Hb7-8S-8Q3"/>
                         <segue destination="uRw-fK-UdI" kind="push" identifier="showDevice" id="nPc-vv-be7"/>
                         <segue destination="fTy-9U-s0Y" kind="push" identifier="gotoControlVCbkp" id="O89-bH-42W"/>
                         <segue destination="SZA-bT-fWq" kind="push" identifier="gotoControlVC" id="Djl-Wk-Gf5"/>
@@ -707,7 +718,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lvl-hS-wqg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1954" y="-1491"/>
+            <point key="canvasLocation" x="1850" y="-1491"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yod-cA-aAY">

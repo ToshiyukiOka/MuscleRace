@@ -16,6 +16,13 @@
 #import "RBLMainViewController.h"
 #import "countTableViewCell.h"
 #import "CellPin.h"
+#import <KiiSDK/KiiBucket.h>
+#import <KiiSDK/Kii.h>
+#import "KiiCreateObjectViewController.h"
+#import "KiiFileUploadViewController.h"
+#import "KiiViewUtilities.h"
+#import "KiiAppConstants.h"
+#import "KiiCommonUtilities.h"
 
 uint8_t total_pin_count  = 0;
 uint8_t pin_mode[128]    = {0};
@@ -48,6 +55,11 @@ BOOL count_status = false;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *group_name = [userDefaults objectForKey:@"group_name"];
+    KiiGroup *group = [KiiGroup groupWithName: group_name];
+    KiiBucket *bucket = [Kii bucketWithName: group_name];
+    
     UIImage *temp = [[UIImage imageNamed:@"title.png"] imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithImage:temp style:UIBarButtonItemStyleBordered target:self action:@selector(action)];
     self.navigationItem.leftBarButtonItem = barButtonItem;
@@ -57,6 +69,7 @@ BOOL count_status = false;
     protocol.delegate = self;
     protocol.ble = ble;
     //countLabel.text = @"筋トレを始めましょう！";
+
     
     
     

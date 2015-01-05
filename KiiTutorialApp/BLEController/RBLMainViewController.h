@@ -22,6 +22,7 @@
     IBOutlet UIButton *btnConnect;
     IBOutlet UIButton *btnConnectLast;
     IBOutlet UILabel *lblVersion;
+    IBOutlet UILabel *groupName;
     BOOL showAlert;
     bool isFindingLast;
 }
