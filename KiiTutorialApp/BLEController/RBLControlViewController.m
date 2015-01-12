@@ -69,9 +69,7 @@ BOOL count_status = false;
     protocol.delegate = self;
     protocol.ble = ble;
     //countLabel.text = @"筋トレを始めましょう！";
-
-    
-    
+    countLabel.alpha = 0.1;
     
     NSLog(@"ControlView: viewDidLoad");
 }
@@ -312,6 +310,48 @@ NSTimer *syncTimer;
                 NSLog(@"%d回", count);
                 countLabel.text = [NSString stringWithFormat:@"%d", count];
                 count_status = true;
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                [UIView animateWithDuration:0.5
+                                      delay:0
+                                    options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
+                                 animations:^{
+                                     self.countImage.alpha = 1;
+                                 }
+                                 completion:^(BOOL finished){
+                                     nil;
+                                 }
+                
+                ];
+                
+                
+                
+
+               
+                
+                
+                
+                
+                
+                
+                
+                
+                
             }
         }
         else
