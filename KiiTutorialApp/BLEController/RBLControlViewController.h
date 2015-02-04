@@ -24,8 +24,13 @@
     IBOutlet UILabel *personalCountLabel;
     IBOutlet UIView *imageGroup;
     IBOutlet UIImageView *fatMan;
+    IBOutlet UIImageView *fire01;
+    IBOutlet UIImageView *fire02;
+    IBOutlet UIImageView *fire03;
     int fatManStatus;
+    int fireStatus;
     int soundRandomStatus;
+    SystemSoundID fireSound;
     SystemSoundID hitSound;
 }
 

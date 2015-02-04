@@ -546,6 +546,9 @@
                     <connections>
                         <outlet property="countLabel" destination="YdK-1c-nXO" id="yXC-df-MNV"/>
                         <outlet property="fatMan" destination="pHd-yk-5Mc" id="EMp-6W-9hD"/>
+                        <outlet property="fire01" destination="iFf-1x-T3o" id="SE1-4M-R6L"/>
+                        <outlet property="fire02" destination="bpA-JB-JrR" id="U9O-Lg-rcH"/>
+                        <outlet property="fire03" destination="AHQ-fZ-lCj" id="QFN-cb-rZ6"/>
                         <outlet property="imageGroup" destination="Qfa-r8-YPp" id="MuY-yk-IHn"/>
                         <outlet property="personalCountLabel" destination="FrI-EF-IQA" id="aGw-OB-Dor"/>
                         <outlet property="totalCountLabel" destination="HuS-fW-GX8" id="QEA-Qr-aEW"/>

@@ -66,6 +66,7 @@
 		F37EC4521A81F76000D4882C /* hit03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F37EC44B1A81F76000D4882C /* hit03.mp3 */; };
 		F37EC4531A81F76000D4882C /* hit04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F37EC44C1A81F76000D4882C /* hit04.mp3 */; };
 		F37EC4541A81F76000D4882C /* hit05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F37EC44D1A81F76000D4882C /* hit05.mp3 */; };
+		F392E4181A82171900180F52 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F392E4171A82171900180F52 /* fire.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -163,6 +164,7 @@
 		F37EC44B1A81F76000D4882C /* hit03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit03.mp3; sourceTree = "<group>"; };
 		F37EC44C1A81F76000D4882C /* hit04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit04.mp3; sourceTree = "<group>"; };
 		F37EC44D1A81F76000D4882C /* hit05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit05.mp3; sourceTree = "<group>"; };
+		F392E4171A82171900180F52 /* fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fire.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,6 +352,7 @@
 		F37EC4381A81ECEB00D4882C /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				F392E4171A82171900180F52 /* fire.mp3 */,
 				F37EC4471A81F76000D4882C /* fight01.m4a */,
 				F37EC4481A81F76000D4882C /* fight02.m4a */,
 				F37EC4491A81F76000D4882C /* hit01.mp3 */,
@@ -420,6 +423,7 @@
 				F37EC4511A81F76000D4882C /* hit02.mp3 in Resources */,
 				F37EC4521A81F76000D4882C /* hit03.mp3 in Resources */,
 				02B073B51A81CE1300B0C3E6 /* SVProgressHUD.bundle in Resources */,
+				F392E4181A82171900180F52 /* fire.mp3 in Resources */,
 				9B5B533218338B26000533F9 /* Images.xcassets in Resources */,
 				4F1EA26A1A2C51EE00419DBB /* countTableViewCell.xib in Resources */,
 				F37EC44E1A81F76000D4882C /* fight01.m4a in Resources */,
