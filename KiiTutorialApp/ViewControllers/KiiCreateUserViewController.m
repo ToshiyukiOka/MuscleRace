@@ -18,6 +18,8 @@
 #import "KiiAppConstants.h"
 #import "AlertView.h"
 #import "SVProgressHUD.h"
+#import "ApiClient.h"
+#import "AppUser.h"
 
 @interface KiiCreateUserViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *descView;
@@ -39,20 +41,34 @@
 
 - (IBAction)mSignUpButton:(id)sender {
     // Hide keyboard
-    
-    //[SVProgressHUD show];
-    
     [self.view endEditing:YES];
+    [self login:@"signUp"];
+}
+
+- (IBAction)mSignInButton:(id)sender {
+    // Hide keyboard
+    [self.view endEditing:YES];
+    [self login:@"signIn"];
+}
+
+- (void)login:(NSString *)methodType {
 
     // Get username and password from text field
-    NSString *userIdentifier = [self.usernameField text];
+    NSString *userName = [self.usernameField text];
     NSString *password = [self.passwordField text];
     
-    // validation error
     AlertView *alertView = [AlertView new];
-    [alertView setTitle:@"Sign Up Error"];
+    ApiClient *api = [[ ApiClient alloc] initWithPath:@"/login"];
     
-    if([userIdentifier length] == 0){
+    if ([methodType isEqualToString:@"signIn"]) {
+        [alertView setTitle:@"Sign In Error"];
+    } else if ([methodType isEqualToString:@"signUp"]) {
+        [alertView setTitle:@"Sign Up Error"];
+         api.path = @"/users";
+    }
+    
+    // validation error
+    if([userName length] == 0){
         [alertView setText:@"ユーザ名が入力されていません"];
         [self presentViewController:[alertView build] animated:YES completion:nil];
         return;
@@ -62,64 +78,38 @@
         return;
     }
     
-    // Create KiiUser from username and password
-    KiiUser *user = [KiiUser userWithUsername:userIdentifier andPassword:password];
-    // Do register with Blocks
-    [user performRegistrationWithBlock:^(KiiUser *retUser, NSError *retError) {
-        [KiiViewUtilities hideProgressHUD:self.view];
-
-        // Check returning error
-        if (retError) {
-            NSString *errorMessage = @"Registration failed.";
-            NSString *detailedMessage = [KiiCommonUtilities errorDetailsMessage:retError];
-            [KiiViewUtilities showFailureHUD:errorMessage withDetailsText:detailedMessage andView:self.view];
-        } else {
-            [self performSegueWithIdentifier:@"LoginCompleted" sender:self];
-            KiiBucket *bucket = [[KiiUser currentUser] bucketWithName:@"count"];
-            // Create an object with key/value pairs
-            KiiObject *object = [bucket createObject];
-            [object setObject:[NSNumber numberWithInt:0]
-                       forKey:@"count"];
-            [object setObject:@"active"
-                       forKey:@"status"];
-            
-            // Save the object
-            NSError *error;
-            [object saveSynchronous:&error];
-            if (error != nil) {
-                // Saving object failed
-                // Please check error description/code to see what went wrong...
-            }
-        }
-    }];
-
-    [KiiViewUtilities showProgressHUD:@"Processing..." withView:self.view];
+    // for signup
+    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeGradient];
+    
+    NSDictionary *parameters = @{ @"user": @{@"name": userName, @"password": password } };
+    [api.manager POST:api.getUrl parameters:parameters
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [SVProgressHUD dismiss];
+                  
+                  // login or signUp succe
+                  if([(NSNumber *)responseObject[@"result"] boolValue] == TRUE){
+                      [SVProgressHUD showSuccessWithStatus:@"Success！"];
+                      // stock user data to NsUserDefault
+                      AppUser *appUser = [[AppUser alloc] init];
+                      [appUser setName: userName];
+                      [appUser setUserId: responseObject[@"user_id"]];
+                      [self performSegueWithIdentifier:@"LoginCompleted" sender:self];
+                  }else if([(NSNumber *)responseObject[@"result"] boolValue] == FALSE){ // failed
+                      [SVProgressHUD dismiss];
+                      [alertView setText:@"user_name or password is wrong!"];
+                      [self presentViewController:[alertView build] animated:YES completion:nil];
+                      return;
+                  }
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [SVProgressHUD dismiss];
+                  [alertView setTitle:@"Server Error"];
+                  [alertView setText:@"通信でエラーが発生しました。再度試して下さい。"];
+                  [self presentViewController:[alertView build] animated:YES completion:nil];
+              }];
 }
 
-- (IBAction)mSignInButton:(id)sender {
-    // Hide keyboard
-    [self.view endEditing:YES];
-
-    // Get username and password from text field
-    NSString *userIdentifier = [self.usernameField text];
-    NSString *password = [self.passwordField text];
-
-    // Do authenticate with Blocks
-    [KiiUser authenticate:userIdentifier withPassword:password andBlock:^(KiiUser *retUser, NSError *retError) {
-        [KiiViewUtilities hideProgressHUD:self.view];
-
-        // Check returning error
-        if (retError) {
-            NSString *errorMessage = @"SignIn failed.";
-            NSString *detailedMessage = [KiiCommonUtilities errorDetailsMessage:retError];
-            [KiiViewUtilities showFailureHUD:errorMessage withDetailsText:detailedMessage andView:self.view];
-        } else {
-            [self performSegueWithIdentifier:@"LoginCompleted" sender:self];
-        }
-    }];
-
-    [KiiViewUtilities showProgressHUD:@"Processing..." withView:self.view];
-}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];

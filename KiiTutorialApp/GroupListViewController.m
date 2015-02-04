@@ -17,6 +17,10 @@
 #import "GroupListViewController.h"
 #import "KiiUserGroup.h"
 #import "MuscleGroup.h"
+#import "AlertView.h"
+#import "SVProgressHUD.h"
+#import "ApiClient.h"
+#import "AppUser.h"
 
 @interface GroupListViewController () {
     NSArray *groupDatas;
@@ -38,7 +42,6 @@
     [super viewDidLoad];
     groupDatas = [[NSArray alloc] init];
     
-    
     MuscleGroup *muscleGroup = [[MuscleGroup alloc] initWithName:@"アトラエ" groupId:1];
     groupDatas = [groupDatas arrayByAddingObject: muscleGroup];
     
@@ -51,6 +54,35 @@
 
 - (void)loadInitialData {
     // seiya api
+    
+    // for signup
+    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"loading..." maskType:SVProgressHUDMaskTypeGradient];
+
+    AlertView *alertView = [AlertView new];
+    ApiClient *api = [[ ApiClient alloc] initWithPath:@"/groups"];
+    
+    [api.manager GET:api.getUrl parameters:nil
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [SVProgressHUD dismiss];
+                  
+                  // login or signUp succe
+                  if([(NSNumber *)responseObject[@"result"] boolValue] == TRUE){
+                      [SVProgressHUD showSuccessWithStatus:@"Success！"];
+                      
+                      [self.navigationController popViewControllerAnimated:YES];
+                  }
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [SVProgressHUD dismiss];
+                  [alertView setTitle:@"Server Error"];
+                  [alertView setText:@"通信でエラーが発生しました。再度試して下さい。"];
+                  [self presentViewController:[alertView build] animated:YES completion:nil];
+              }
+     ];
+
+    
+    
 }
 
 

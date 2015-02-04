@@ -13,4 +13,6 @@
 @property (nonatomic, strong) IBOutlet UITextField *usernameField;
 @property (nonatomic, strong) IBOutlet UITextField *passwordField;
 
+- (void)login:(NSString *)methodType;
+
 @end
