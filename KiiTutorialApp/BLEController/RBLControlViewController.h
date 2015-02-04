@@ -12,6 +12,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "RBLProtocol.h"
 #import "BLE.h"
 
@@ -21,11 +22,21 @@
     IBOutlet UILabel *countLabel;
     IBOutlet UILabel *totalCountLabel;
     IBOutlet UILabel *personalCountLabel;
+    IBOutlet UIView *imageGroup;
+    IBOutlet UIImageView *fatMan;
+    IBOutlet UIImageView *fire01;
+    IBOutlet UIImageView *fire02;
+    IBOutlet UIImageView *fire03;
+    int fatManStatus;
+    int fireStatus;
+    int soundRandomStatus;
+    SystemSoundID fireSound;
+    SystemSoundID hitSound;
 }
 
 @property (strong, nonatomic) BLE *ble;
 @property (strong, nonatomic) RBLProtocol *protocol;
-@property (strong, nonatomic) IBOutlet UIImageView *countImage;
+@property (strong, nonatomic) IBOutlet UIImageView *fireImage;
 
 - (IBAction)stopCount:(id)sender;
 

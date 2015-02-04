@@ -85,6 +85,15 @@
 		EAB8AF30193888D6000A4590 /* KiiFileAttachDescViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB8AF2F193888D6000A4590 /* KiiFileAttachDescViewController.m */; };
 		F344C3CD1A371E0D00A82444 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = F344C3CB1A371E0D00A82444 /* Fire.sks */; };
 		F344C3CE1A371E0D00A82444 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F344C3CC1A371E0D00A82444 /* spark.png */; };
+		F37EC4371A81EC8200D4882C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F37EC4361A81EC8200D4882C /* AudioToolbox.framework */; };
+		F37EC44E1A81F76000D4882C /* fight01.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F37EC4471A81F76000D4882C /* fight01.m4a */; };
+		F37EC44F1A81F76000D4882C /* fight02.m4a in Resources */ = {isa = PBXBuildFile; fileRef = F37EC4481A81F76000D4882C /* fight02.m4a */; };
+		F37EC4501A81F76000D4882C /* hit01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F37EC4491A81F76000D4882C /* hit01.mp3 */; };
+		F37EC4511A81F76000D4882C /* hit02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F37EC44A1A81F76000D4882C /* hit02.mp3 */; };
+		F37EC4521A81F76000D4882C /* hit03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F37EC44B1A81F76000D4882C /* hit03.mp3 */; };
+		F37EC4531A81F76000D4882C /* hit04.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F37EC44C1A81F76000D4882C /* hit04.mp3 */; };
+		F37EC4541A81F76000D4882C /* hit05.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F37EC44D1A81F76000D4882C /* hit05.mp3 */; };
+		F392E4181A82171900180F52 /* fire.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F392E4171A82171900180F52 /* fire.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,6 +235,15 @@
 		EAB8AF2F193888D6000A4590 /* KiiFileAttachDescViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KiiFileAttachDescViewController.m; path = ViewControllers/KiiFileAttachDescViewController.m; sourceTree = "<group>"; };
 		F344C3CB1A371E0D00A82444 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
 		F344C3CC1A371E0D00A82444 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		F37EC4361A81EC8200D4882C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F37EC4471A81F76000D4882C /* fight01.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = fight01.m4a; sourceTree = "<group>"; };
+		F37EC4481A81F76000D4882C /* fight02.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = fight02.m4a; sourceTree = "<group>"; };
+		F37EC4491A81F76000D4882C /* hit01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit01.mp3; sourceTree = "<group>"; };
+		F37EC44A1A81F76000D4882C /* hit02.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit02.mp3; sourceTree = "<group>"; };
+		F37EC44B1A81F76000D4882C /* hit03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit03.mp3; sourceTree = "<group>"; };
+		F37EC44C1A81F76000D4882C /* hit04.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit04.mp3; sourceTree = "<group>"; };
+		F37EC44D1A81F76000D4882C /* hit05.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit05.mp3; sourceTree = "<group>"; };
+		F392E4171A82171900180F52 /* fire.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fire.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37EC4371A81EC8200D4882C /* AudioToolbox.framework in Frameworks */,
 				EA5B94C019750F8300398A32 /* Social.framework in Frameworks */,
 				EA5B94BE19750F7500398A32 /* ImageIO.framework in Frameworks */,
 				9B5B531C18338B26000533F9 /* CoreGraphics.framework in Frameworks */,
@@ -317,6 +336,7 @@
 		9B5B530D18338B26000533F9 = {
 			isa = PBXGroup;
 			children = (
+				F37EC4381A81ECEB00D4882C /* Sound */,
 				02B073B91A81DCE100B0C3E6 /* MuscleGroup.h */,
 				02B073BA1A81DCE100B0C3E6 /* MuscleGroup.m */,
 				F344C3CB1A371E0D00A82444 /* Fire.sks */,
@@ -350,6 +370,7 @@
 		9B5B531818338B26000533F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F37EC4361A81EC8200D4882C /* AudioToolbox.framework */,
 				EA5B94BF19750F8300398A32 /* Social.framework */,
 				EA5B94BD19750F7500398A32 /* ImageIO.framework */,
 				EA5B94BB19750E2B00398A32 /* libsqlite3.0.dylib */,
@@ -475,6 +496,21 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		F37EC4381A81ECEB00D4882C /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				F392E4171A82171900180F52 /* fire.mp3 */,
+				F37EC4471A81F76000D4882C /* fight01.m4a */,
+				F37EC4481A81F76000D4882C /* fight02.m4a */,
+				F37EC4491A81F76000D4882C /* hit01.mp3 */,
+				F37EC44A1A81F76000D4882C /* hit02.mp3 */,
+				F37EC44B1A81F76000D4882C /* hit03.mp3 */,
+				F37EC44C1A81F76000D4882C /* hit04.mp3 */,
+				F37EC44D1A81F76000D4882C /* hit05.mp3 */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -531,16 +567,20 @@
 				F344C3CD1A371E0D00A82444 /* Fire.sks in Resources */,
 				02B074081A820EEB00B0C3E6 /* ranking@2x.png in Resources */,
 				02B073B51A81CE1300B0C3E6 /* SVProgressHUD.bundle in Resources */,
+				F392E4181A82171900180F52 /* fire.mp3 in Resources */,
 				9B5B533218338B26000533F9 /* Images.xcassets in Resources */,
 				02B0740C1A820F0400B0C3E6 /* training.png in Resources */,
 				4F1EA26A1A2C51EE00419DBB /* countTableViewCell.xib in Resources */,
+				F37EC44E1A81F76000D4882C /* fight01.m4a in Resources */,
 				4F1E5F5F1A1093F6006BFB69 /* Main.storyboard in Resources */,
 				4F291F5819E25EBC0043710D /* RedBearLab.jpg in Resources */,
+				F37EC4531A81F76000D4882C /* hit04.mp3 in Resources */,
 				F344C3CE1A371E0D00A82444 /* spark.png in Resources */,
 				02B0740A1A820EFE00B0C3E6 /* training@2x.png in Resources */,
 				9B5B532418338B26000533F9 /* InfoPlist.strings in Resources */,
 				02B074061A820ED600B0C3E6 /* ranking.png in Resources */,
 				4F291F5919E25EBC0043710D /* title.png in Resources */,
+				F37EC44F1A81F76000D4882C /* fight02.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

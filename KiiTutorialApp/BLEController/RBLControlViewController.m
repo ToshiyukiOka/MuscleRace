@@ -53,6 +53,7 @@ BOOL count_status = false;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSInteger *siboukun_status = 1;
 	// Do any additional setup after loading the view, typically from a nib.
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -68,9 +69,45 @@ BOOL count_status = false;
     protocol = [[RBLProtocol alloc] init];
     protocol.delegate = self;
     protocol.ble = ble;
-    //countLabel.text = @"筋トレを始めましょう！";
-    countLabel.alpha = 0.1;
+    countLabel.alpha = 0.8;
+    fire01.alpha = 0;
+    fire02.alpha = 0;
+    fire03.alpha = 0;
+    fire01.transform = CGAffineTransformScale(fire01.transform, 0.5, 0.5);
+    fire02.transform = CGAffineTransformScale(fire02.transform, 0.5, 0.5);
+    fire03.transform = CGAffineTransformScale(fire03.transform, 0.5, 0.5);
+
+    //炎画像の切り替え
+    fireStatus = 0;
+    [NSTimer
+     scheduledTimerWithTimeInterval:0.4
+     target:self
+     selector:@selector(fireImageChange:)
+     userInfo:nil
+     repeats:YES
+     ];
+
+    //しぼうくんの画像切り替え
+    fatManStatus = 0;
+    [NSTimer
+        scheduledTimerWithTimeInterval:1
+        target:self
+        selector:@selector(fatManLevel5Change:)
+        userInfo:nil
+        repeats:YES
+     ];
+
+    //しぼうくんの横移動
+    CABasicAnimation *fatManAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    fatManAnimation.duration = 2;
+    fatManAnimation.repeatCount = HUGE_VALF;
+    fatManAnimation.autoreverses = YES;
+    fatManAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(130, 260)];
+    fatManAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(190, 260)];
+    fatManAnimation.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseInEaseOut];
+    [imageGroup.layer addAnimation:fatManAnimation forKey:@"fatManAnimationLayer"];
     
+
     NSLog(@"ControlView: viewDidLoad");
 }
 
@@ -207,13 +244,30 @@ NSTimer *syncTimer;
         if(count_status == false){
             count_status = true;
             count++;
-            if (count > 4){
-                // 画像の読み込み
-                _countImage.image = [UIImage imageNamed:@"title.png"];
-                
-                // UIImageViewのインスタンスをビューに追加
-                [self.view addSubview: _countImage];
+            if (count >= 10 && count < 20){
+//                if (count == 10) {
+//                    NSString *firePath = [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"mp3"];
+//                    NSURL *fireUrl = [NSURL fileURLWithPath:firePath];
+//                    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(fireUrl), &fireSound);
+//                    AudioServicesPlaySystemSound(fireSound);
+//                }
+                fire01.alpha = 0.5 + (count - 10) * 0.04;
+                fire01.transform = CGAffineTransformScale(fire01.transform, 1 + (count - 10) * 0.01, 1 + (count - 10) * 0.01);
+            } else if (count >= 20 && count < 30) {
+                fire02.alpha = 0.5 + (count - 20) * 0.04;
+                fire02.transform = CGAffineTransformScale(fire02.transform, 1 + (count - 20) * 0.01, 1 + (count - 20) * 0.01);
+            } else if (count >= 30 && count < 40) {
+                fire03.alpha = 0.5 + (count - 30) * 0.04;
+                fire03.transform = CGAffineTransformScale(fire03.transform, 1 + (count - 30) * 0.01, 1 + (count - 30) * 0.01);
+            } else if (count >= 40 && count < 50) {
+                fire01.alpha = 0.9 + (count - 40) * 0.01;
+                fire02.alpha = 0.9 + (count - 40) * 0.01;
+                fire03.alpha = 0.9 + (count - 40) * 0.01;
+                fire01.transform = CGAffineTransformScale(fire01.transform, 1 + (count - 40) * 0.01, 1 + (count - 40) * 0.01);
+                fire02.transform = CGAffineTransformScale(fire02.transform, 1 + (count - 40) * 0.01, 1 + (count - 40) * 0.01);
+                fire03.transform = CGAffineTransformScale(fire03.transform, 1 + (count - 40) * 0.01, 1 + (count - 40) * 0.01);
             }
+            
             NSLog(@"%d回", count);
             countLabel.text = [NSString stringWithFormat:@"%d", count];
 
@@ -233,7 +287,49 @@ NSTimer *syncTimer;
             
             group.animations = [NSArray arrayWithObjects:Counter_Opacity, Counter_Scale, nil];
             [countLabel.layer addAnimation:group forKey:@"MyAnimation"];
-
+            
+            //しぼうくんの衝撃
+            CABasicAnimation *fatManImpact = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+            fatManImpact.duration = 0.04;
+            fatManImpact.autoreverses = YES;
+            fatManImpact.fromValue = @1.0;
+            fatManImpact.toValue = @1.35;
+            [imageGroup.layer addAnimation:fatManImpact forKey:@"fatManImpactAnimationLayer"];
+            
+            //効果音
+            soundRandomStatus = random() % 7;
+            
+            //効果音ファイル読み込み
+            if(soundRandomStatus == 0){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit01" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 1){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit02" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 2){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit03" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 3){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit04" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 4){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit05" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 5){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"fight01" ofType:@"m4a"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 6){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"fight02" ofType:@"m4a"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }
+            AudioServicesPlaySystemSound(hitSound);
         }
     
     }
@@ -329,48 +425,6 @@ NSTimer *syncTimer;
                 NSLog(@"%d回", count);
                 countLabel.text = [NSString stringWithFormat:@"%d", count];
                 count_status = true;
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                [UIView animateWithDuration:0.5
-                                      delay:0
-                                    options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
-                                 animations:^{
-                                     self.countImage.alpha = 1;
-                                 }
-                                 completion:^(BOOL finished){
-                                     nil;
-                                 }
-                
-                ];
-                
-                
-                
-
-               
-                
-                
-                
-                
-                
-                
-                
-                
-                
             }
         }
         else
@@ -495,6 +549,34 @@ uint8_t current_pin = 0;
     {
         pin_servo[pin] = value;
         [protocol servoWrite:pin Value:value];
+    }
+}
+
+//しぼうくん画像変更用メソッド
+-(void)fatManLevel5Change:(NSTimer*)timer{
+    if(fatManStatus == 0){
+        UIImage *img = [UIImage imageNamed:@"fat_level5_cry.png"];
+        fatMan.image =  img;
+        fatManStatus = 1;
+    }else{
+        UIImage *img = [UIImage imageNamed:@"fat_level5_normal.png"];
+        fatMan.image =  img;
+        fatManStatus = 0;
+    }
+}
+
+//炎画像変更用メソッド
+-(void)fireImageChange:(NSTimer*)timer{
+    if(fireStatus == 0){
+        fire01.transform = CGAffineTransformScale(fire01.transform, -1, 1);
+        fire02.transform = CGAffineTransformScale(fire02.transform, -1, 1);
+        fire03.transform = CGAffineTransformScale(fire03.transform, 1, 1);
+        fireStatus = 1;
+    }else{
+        fire01.transform = CGAffineTransformScale(fire01.transform, 1, 1);
+        fire02.transform = CGAffineTransformScale(fire02.transform, 1, 1);
+        fire03.transform = CGAffineTransformScale(fire03.transform, -1, 1);
+        fireStatus = 0;
     }
 }
 
