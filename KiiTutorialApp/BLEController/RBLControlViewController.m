@@ -102,8 +102,8 @@ BOOL count_status = false;
     fatManAnimation.duration = 2;
     fatManAnimation.repeatCount = HUGE_VALF;
     fatManAnimation.autoreverses = YES;
-    fatManAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(130, 260)];
-    fatManAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(190, 260)];
+    fatManAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(130, 230)];
+    fatManAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(190, 230)];
     fatManAnimation.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseInEaseOut];
     [imageGroup.layer addAnimation:fatManAnimation forKey:@"fatManAnimationLayer"];
     
@@ -297,7 +297,7 @@ NSTimer *syncTimer;
             [imageGroup.layer addAnimation:fatManImpact forKey:@"fatManImpactAnimationLayer"];
             
             //効果音
-            soundRandomStatus = random() % 7;
+            soundRandomStatus = random() % 15;
             
             //効果音ファイル読み込み
             if(soundRandomStatus == 0){
@@ -326,6 +326,38 @@ NSTimer *syncTimer;
                 AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
             }else if (soundRandomStatus == 6){
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"fight02" ofType:@"m4a"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 7){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit06" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 8){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit07" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 9){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit08" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 10){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit09" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 11){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit10" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 12){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit11" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 13){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit12" ofType:@"mp3"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
+            }else if (soundRandomStatus == 14){
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"hit13" ofType:@"mp3"];
                 NSURL *url = [NSURL fileURLWithPath:path];
                 AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &hitSound);
             }
