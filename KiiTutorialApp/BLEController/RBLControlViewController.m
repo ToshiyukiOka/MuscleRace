@@ -216,7 +216,26 @@ NSTimer *syncTimer;
             }
             NSLog(@"%d回", count);
             countLabel.text = [NSString stringWithFormat:@"%d", count];
+
+            // ラベルをフェードイン、フェードアウトさせるアニメーションを開始する
+            CABasicAnimation* Counter_Opacity = [CABasicAnimation animationWithKeyPath:@"opacity"];
+            Counter_Opacity.fromValue = [NSNumber numberWithFloat:1];
+            Counter_Opacity.toValue = [NSNumber numberWithFloat:0];
+            
+            CABasicAnimation* Counter_Scale = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+            Counter_Scale.fromValue = @1.0;
+            Counter_Scale.toValue = @3.0;
+            Counter_Scale.fillMode = kCAFillModeBoth;
+            Counter_Scale.delegate = self;
+            
+            CAAnimationGroup *group = [CAAnimationGroup animation];
+            group.duration = 0.5;
+            
+            group.animations = [NSArray arrayWithObjects:Counter_Opacity, Counter_Scale, nil];
+            [countLabel.layer addAnimation:group forKey:@"MyAnimation"];
+
         }
+    
     }
     else{
         if (count_status == true){
