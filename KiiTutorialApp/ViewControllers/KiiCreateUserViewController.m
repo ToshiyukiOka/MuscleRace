@@ -17,6 +17,7 @@
 #import "KiiFileUploadViewController.h"
 #import "KiiAppConstants.h"
 #import "AlertView.h"
+#import "SVProgressHUD.h"
 
 @interface KiiCreateUserViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *descView;
@@ -28,40 +29,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(descViewTaped:)];
     singleTap.numberOfTapsRequired = 1;
     singleTap.numberOfTouchesRequired = 1;
     [self.descView addGestureRecognizer:singleTap];
     [self.descView setUserInteractionEnabled:YES];
-
-    // ラベルをビューの中心に貼り付ける
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 100.0, 30.0)];
-    label.text = @"Count";
-    label.textAlignment = NSTextAlignmentCenter;
-    label.center = self.view.center;
-    [self.view addSubview:label];
-    
-    // ラベルをフェードイン、フェードアウトさせるアニメーションを開始する
-    CABasicAnimation* Counter_Opacity = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    Counter_Opacity.fromValue = [NSNumber numberWithFloat:1];
-    Counter_Opacity.toValue = [NSNumber numberWithFloat:0];
-    
-    CABasicAnimation* Counter_Scale = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    Counter_Scale.fromValue = @1.0;
-    Counter_Scale.toValue = @3.0;
-    Counter_Scale.fillMode = kCAFillModeBoth;
-    Counter_Scale.delegate = self;
-
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.duration = 0.5;
-
-    group.animations = [NSArray arrayWithObjects:Counter_Opacity, Counter_Scale, nil];
-    [label.layer addAnimation:group forKey:@"MyAnimation"];
-    
 }
 
 - (IBAction)mSignUpButton:(id)sender {
     // Hide keyboard
+    
+    //[SVProgressHUD show];
+    
     [self.view endEditing:YES];
 
     // Get username and password from text field

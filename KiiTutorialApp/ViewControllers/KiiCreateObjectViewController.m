@@ -23,12 +23,7 @@
 @synthesize groupNameField;
 
 - (void)viewDidLoad {
-    [KiiViewUtilities showSuccessHUD:@"Login success" withView:self.view];
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(descViewTaped:)];
-    singleTap.numberOfTapsRequired = 1;
-    singleTap.numberOfTouchesRequired = 1;
-    [self.descView addGestureRecognizer:singleTap];
-    [self.descView setUserInteractionEnabled:YES];
+    [super viewDidLoad];
 }
 
 - (IBAction)mCreateKiiObjectButton:(id)sender {
