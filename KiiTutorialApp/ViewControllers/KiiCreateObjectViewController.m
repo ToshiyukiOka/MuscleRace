@@ -13,6 +13,10 @@
 #import "KiiViewUtilities.h"
 #import "KiiAppConstants.h"
 #import "KiiCommonUtilities.h"
+#import "AlertView.h"
+#import "SVProgressHUD.h"
+#import "ApiClient.h"
+#import "AppUser.h"
 
 @interface KiiCreateObjectViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *descView;
@@ -27,62 +31,52 @@
 }
 
 - (IBAction)mCreateKiiObjectButton:(id)sender {
-    NSError *error;
+    
+    //[self.view endEditing:YES];
+    
     NSString *enteredText = self.groupNameField.text;
-    NSString *groupName = enteredText;
     
-    KiiGroup* group = [KiiGroup groupWithName:groupName];
-    [group saveSynchronous:&error];
-    // Add user1 and user2 to the group
-    KiiUser *user = [KiiUser currentUser];
-    [group addUser:user];
-    [group saveSynchronous:&error];
-    KiiBucket *bucket = [group bucketWithName: groupName];
-    // Create an object with key/value pairs
-    KiiObject *object = [bucket createObject];
-    [object setObject:[NSNumber numberWithInt:0]
-               forKey:@"group_count"];
-    [object setObject:@"active"
-               forKey:@"status"];
+    AlertView *alertView = [AlertView new];
+    ApiClient *api = [[ ApiClient alloc] initWithPath:@"/groups"];
+    AppUser *appUser = [[AppUser alloc] init];
     
-    // Save the object
-    [object saveSynchronous:&error];
-    if (error != nil) {
-        // Saving object failed
-        // Please check error description/code to see what went wrong...
+    if ([enteredText length] == 0) {
+        [alertView setText:@"グループ名が入力されていません"];
+        [self presentViewController:[alertView build] animated:YES completion:nil];
+        return;
     }
+
+    // for signup
+    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"Creating..." maskType:SVProgressHUDMaskTypeGradient];
     
-    if (error != nil) {
-        // Group creation failed
-        // Please check error description/code to see what went wrong...
-        [KiiViewUtilities showFailureHUD:@"KiiObject creation is failed." withView:self.view];
-        NSLog(@"ERROR!!");
-    } else {
-        [self performSegueWithIdentifier:@"CreateObjectCompleted" sender:self];
-        NSLog(@"SUCCESS1!!");
-    }
+    NSDictionary *parameters =
+        @{ @"group": @{ @"name": enteredText }};
     
-    // Get the reference URI.
-    NSString *groupUri = [group objectURI];
+    [api.manager POST:api.getUrl parameters:parameters
+              success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                  [SVProgressHUD dismiss];
+                  
+                  // login or signUp succe
+                  if([(NSNumber *)responseObject[@"result"] boolValue] == TRUE){
+                      [SVProgressHUD showSuccessWithStatus:@"Success！"];
+                      
+                      [self.navigationController popViewControllerAnimated:YES];
+                  }else if([(NSNumber *)responseObject[@"result"] boolValue] == FALSE){ // failed
+                      [SVProgressHUD dismiss];
+                      [alertView setText:@"create error!"];
+                      [self presentViewController:[alertView build] animated:YES completion:nil];
+                      return;
+                  }
+              }
+              failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                  [SVProgressHUD dismiss];
+                  [alertView setTitle:@"Server Error"];
+                  [alertView setText:@"通信でエラーが発生しました。再度試して下さい。"];
+                  [self presentViewController:[alertView build] animated:YES completion:nil];
+              }
+     ];
     
-    // Get the reference ID.
-    //NSString *groupID = [group groupID];
-    
-    //NSLog(groupID);
-    
-    //KiiBucket *bucket = [Kii bucketWithName:@"Group"]; //KII_APP_BUCKET_NAME
-    //KiiObject *object = [bucket createObject];
-    //[object setObject:[KiiUser currentUser].username forKey:@"username"];
-    //[object saveWithBlock:^(KiiObject *retObject, NSError *retError) {
-    //    [KiiViewUtilities hideProgressHUD:self.view];
-    //    if (retError) {
-    //        [KiiViewUtilities showFailureHUD:@"KiiObject creation is failed." withView:self.view];
-    //    } else {
-    //        self.kiiObject = retObject;
-    //        [self performSegueWithIdentifier:@"CreateObjectCompleted" sender:self];
-    //    }
-    //}];
-    [KiiViewUtilities showProgressHUD:@"Create KiiObject..." withView:self.view];
 }
 
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
