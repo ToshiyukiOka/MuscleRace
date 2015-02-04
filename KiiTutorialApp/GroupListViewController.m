@@ -44,6 +44,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
 
+    _groupSearchBar.delegate = self;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -85,6 +86,31 @@
     
     
 }
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    NSLog(@"aaaaaaaaaaaaaa");
+    
+    
+    
+    //if( [searchText length] != 0 )
+    //{
+        
+        //for(int i=0; i < groupDatas.count; i++){
+        //    MuscleGroup *muscleGroup = groupDatas[i];
+        //    NSRange range = [muscleGroup.name rangeOfString:searchText];
+
+        //    if (range.location != NSNotFound) {
+                
+        //    }
+        //}
+        // インクリメンタル検索
+    //}
+}
+
+- (void)filterContentForSearchText:(NSString*)searchString scope:(NSString*)scope {
+    NSLog(@"START filterContentForSearchText"); // NOT CALLED...
+ }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

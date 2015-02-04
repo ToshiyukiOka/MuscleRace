@@ -420,7 +420,7 @@
                                                 <constraint firstAttribute="width" constant="230" id="8qo-fo-Oay"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-JB-JrR">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="bpA-JB-JrR">
                                             <rect key="frame" x="17" y="0.0" width="42" height="55"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="42" id="4du-E3-Wni"/>
@@ -434,7 +434,7 @@
                                                 <constraint firstAttribute="height" constant="61" id="sV3-mP-frw"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="AHQ-fZ-lCj">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="AHQ-fZ-lCj">
                                             <rect key="frame" x="55" y="106" width="40" height="51"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="Bf8-pz-rI9"/>
