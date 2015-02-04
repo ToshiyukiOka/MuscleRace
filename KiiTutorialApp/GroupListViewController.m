@@ -40,21 +40,20 @@
 {
     //static NSString *CellIdentifier = @"Cell";
     [super viewDidLoad];
-    groupDatas = [[NSArray alloc] init];
-    
-    MuscleGroup *muscleGroup = [[MuscleGroup alloc] initWithName:@"アトラエ" groupId:1];
-    groupDatas = [groupDatas arrayByAddingObject: muscleGroup];
-    
-    //[self loadInitialData];
     
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    
+
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self loadInitialData];
 }
 
 - (void)loadInitialData {
     // seiya api
     
+    groupDatas = [[NSArray alloc] init];
     // for signup
     [SVProgressHUD show];
     [SVProgressHUD showWithStatus:@"loading..." maskType:SVProgressHUDMaskTypeGradient];
@@ -66,12 +65,14 @@
               success:^(AFHTTPRequestOperation *operation, id responseObject) {
                   [SVProgressHUD dismiss];
                   
-                  // login or signUp succe
-                  if([(NSNumber *)responseObject[@"result"] boolValue] == TRUE){
-                      [SVProgressHUD showSuccessWithStatus:@"Success！"];
-                      
-                      [self.navigationController popViewControllerAnimated:YES];
+                  NSMutableArray *dataLists = [NSMutableArray arrayWithArray:responseObject[@"groups"]];
+                  
+                  for (int i = 0; i < [dataLists count]; i++) {
+                      MuscleGroup *muscleGroup = [[MuscleGroup alloc] initWithName:dataLists[i][@"name"] groupId:dataLists[i][@"id"]];
+                      groupDatas = [groupDatas arrayByAddingObject: muscleGroup];
                   }
+                  
+                  [_tableView reloadData];
               }
               failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                   [SVProgressHUD dismiss];

@@ -60,8 +60,8 @@
                   // login or signUp succe
                   if([(NSNumber *)responseObject[@"result"] boolValue] == TRUE){
                       [SVProgressHUD showSuccessWithStatus:@"Success！"];
-                      
                       [self.navigationController popViewControllerAnimated:YES];
+                      
                   }else if([(NSNumber *)responseObject[@"result"] boolValue] == FALSE){ // failed
                       [SVProgressHUD dismiss];
                       [alertView setText:@"create error!"];
