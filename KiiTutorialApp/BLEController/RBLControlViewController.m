@@ -102,8 +102,8 @@ BOOL count_status = false;
     fatManAnimation.duration = 2;
     fatManAnimation.repeatCount = HUGE_VALF;
     fatManAnimation.autoreverses = YES;
-    fatManAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(130, 220)];
-    fatManAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(190, 220)];
+    fatManAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(130, 260)];
+    fatManAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(190, 260)];
     fatManAnimation.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseInEaseOut];
     [imageGroup.layer addAnimation:fatManAnimation forKey:@"fatManAnimationLayer"];
     
