@@ -256,6 +256,12 @@
 		F392E41E1A822E0700180F52 /* hit11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit11.mp3; sourceTree = "<group>"; };
 		F392E41F1A822E0700180F52 /* hit12.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit12.mp3; sourceTree = "<group>"; };
 		F392E4201A822E0700180F52 /* hit13.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit13.mp3; sourceTree = "<group>"; };
+		F392E4291A82322A00180F52 /* hit06.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit06.m4a; sourceTree = "<group>"; };
+		F392E42A1A82322A00180F52 /* hit08.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit08.m4a; sourceTree = "<group>"; };
+		F392E42B1A82322A00180F52 /* hit10.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit10.m4a; sourceTree = "<group>"; };
+		F392E42C1A82322A00180F52 /* hit11.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit11.m4a; sourceTree = "<group>"; };
+		F392E42D1A82322A00180F52 /* hit12.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit12.m4a; sourceTree = "<group>"; };
+		F392E42E1A82322A00180F52 /* hit13.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hit13.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -511,6 +517,12 @@
 		F37EC4381A81ECEB00D4882C /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				F392E4291A82322A00180F52 /* hit06.m4a */,
+				F392E42A1A82322A00180F52 /* hit08.m4a */,
+				F392E42B1A82322A00180F52 /* hit10.m4a */,
+				F392E42C1A82322A00180F52 /* hit11.m4a */,
+				F392E42D1A82322A00180F52 /* hit12.m4a */,
+				F392E42E1A82322A00180F52 /* hit13.m4a */,
 				F392E4191A822E0700180F52 /* hit06.mp3 */,
 				F392E41A1A822E0700180F52 /* hit07.mp3 */,
 				F392E41B1A822E0700180F52 /* hit08.mp3 */,
