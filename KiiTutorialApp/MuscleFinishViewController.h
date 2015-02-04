@@ -10,4 +10,7 @@
 
 @interface MuscleFinishViewController : UIViewController
 
+@property NSString *finishCount;
+@property (strong, nonatomic) IBOutlet UILabel *finishCountLabel;
+
 @end

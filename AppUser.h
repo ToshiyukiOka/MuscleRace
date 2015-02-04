@@ -17,5 +17,6 @@
 - (void)setUp;
 - (void)setName:(NSString *)name;
 - (void)setUserId:(NSString *)userId;
+- (id)init;
 
 @end

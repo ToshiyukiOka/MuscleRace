@@ -10,6 +10,12 @@
 
 @implementation AppUser
 
+
+- (id)init {
+    [self setUp];
+    return self;
+}
+
 - (void)setUp {
     self.ud = [NSUserDefaults standardUserDefaults];
     self.name = [self.ud objectForKey:@"name"];
