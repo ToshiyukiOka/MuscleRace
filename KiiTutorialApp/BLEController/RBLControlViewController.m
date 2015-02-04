@@ -254,6 +254,14 @@ NSTimer *syncTimer;
             
             group.animations = [NSArray arrayWithObjects:Counter_Opacity, Counter_Scale, nil];
             [countLabel.layer addAnimation:group forKey:@"MyAnimation"];
+            
+            //しぼうくんの衝撃
+            CABasicAnimation *fatManImpact = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+            fatManImpact.duration = 0.04;
+            fatManImpact.autoreverses = YES;
+            fatManImpact.fromValue = @1.0;
+            fatManImpact.toValue = @1.35;
+            [imageGroup.layer addAnimation:fatManImpact forKey:@"fatManImpactAnimationLayer"];
         }
     
     }
