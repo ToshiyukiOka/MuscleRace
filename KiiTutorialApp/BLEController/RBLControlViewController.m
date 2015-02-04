@@ -23,6 +23,11 @@
 #import "KiiViewUtilities.h"
 #import "KiiAppConstants.h"
 #import "KiiCommonUtilities.h"
+#import "AlertView.h"
+#import "SVProgressHUD.h"
+#import "ApiClient.h"
+#import "AppUser.h"
+#import "MuscleFinishViewController.h"
 
 uint8_t total_pin_count  = 0;
 uint8_t pin_mode[128]    = {0};
@@ -50,9 +55,41 @@ BOOL count_status = false;
     [super awakeFromNib];
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // for signup
+    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"loading..." maskType:SVProgressHUDMaskTypeGradient];
+    
+    AlertView *alertView = [AlertView new];
+    ApiClient *api = [[ ApiClient alloc] initWithPath:@"/counts"];
+    AppUser *appUser = [[ AppUser alloc] init];
+    
+    NSDictionary *parameters = @{ @"training_log": @{@"user_id": @3, @"group_id": @3 } };
+    [api.manager GET:api.getUrl parameters:parameters
+             success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                 [SVProgressHUD dismiss];
+                 
+                 NSLog(@"%@", [NSString stringWithFormat:@"%@", responseObject[@"user_counts"]]);
+                 
+                 personalCountLabel.text = [NSString stringWithFormat:@"%@", responseObject[@"user_counts"]];
+                 totalCountLabel.text =  [NSString stringWithFormat:@"%@", responseObject[@"group_counts"]];
+             }
+             failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                 [SVProgressHUD dismiss];
+                 [alertView setTitle:@"Server Error"];
+                 [alertView setText:@"通信でエラーが発生しました。再度試して下さい。"];
+                 [self presentViewController:[alertView build] animated:YES completion:nil];
+             }
+     ];
+    
     NSInteger *siboukun_status = 1;
 	// Do any additional setup after loading the view, typically from a nib.
 
@@ -270,6 +307,8 @@ NSTimer *syncTimer;
             
             NSLog(@"%d回", count);
             countLabel.text = [NSString stringWithFormat:@"%d", count];
+            personalCountLabel.text = [NSString stringWithFormat:@"%d", count];
+            totalCountLabel.text = [NSString stringWithFormat:@"%d", count];
 
             // ラベルをフェードイン、フェードアウトさせるアニメーションを開始する
             CABasicAnimation* Counter_Opacity = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -601,6 +640,14 @@ uint8_t current_pin = 0;
         fire02.transform = CGAffineTransformScale(fire02.transform, 1, 1);
         fire03.transform = CGAffineTransformScale(fire03.transform, -1, 1);
         fireStatus = 0;
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([[segue identifier] isEqualToString:@"modalFinish"]) {
+        //遷移先のViewController
+        MuscleFinishViewController *finishViewController = [segue destinationViewController];
+        finishViewController.finishCount = countLabel.text;
     }
 }
 
