@@ -16,6 +16,7 @@
 #import "KiiCreateObjectViewController.h"
 #import "KiiFileUploadViewController.h"
 #import "KiiAppConstants.h"
+#import "AlertView.h"
 
 @interface KiiCreateUserViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *descView;
@@ -32,14 +33,7 @@
     singleTap.numberOfTouchesRequired = 1;
     [self.descView addGestureRecognizer:singleTap];
     [self.descView setUserInteractionEnabled:YES];
-    
-    
-    
-    
-    
-    
-    
-    
+
     // ラベルをビューの中心に貼り付ける
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, 100.0, 30.0)];
     label.text = @"Count";
@@ -64,15 +58,6 @@
     group.animations = [NSArray arrayWithObjects:Counter_Opacity, Counter_Scale, nil];
     [label.layer addAnimation:group forKey:@"MyAnimation"];
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 - (IBAction)mSignUpButton:(id)sender {
@@ -82,7 +67,21 @@
     // Get username and password from text field
     NSString *userIdentifier = [self.usernameField text];
     NSString *password = [self.passwordField text];
-
+    
+    // validation error
+    AlertView *alertView = [AlertView new];
+    [alertView setTitle:@"Sign Up Error"];
+    
+    if([userIdentifier length] == 0){
+        [alertView setText:@"ユーザ名が入力されていません"];
+        [self presentViewController:[alertView build] animated:YES completion:nil];
+        return;
+    }else if([password length] == 0){
+        [alertView setText:@"メールアドレスが入力されていません"];
+        [self presentViewController:[alertView build] animated:YES completion:nil];
+        return;
+    }
+    
     // Create KiiUser from username and password
     KiiUser *user = [KiiUser userWithUsername:userIdentifier andPassword:password];
     // Do register with Blocks
