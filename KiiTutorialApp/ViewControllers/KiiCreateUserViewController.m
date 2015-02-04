@@ -16,6 +16,8 @@
 #import "KiiCreateObjectViewController.h"
 #import "KiiFileUploadViewController.h"
 #import "KiiAppConstants.h"
+#import "AlertView.h"
+#import "SVProgressHUD.h"
 
 @interface KiiCreateUserViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *descView;
@@ -27,22 +29,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(descViewTaped:)];
     singleTap.numberOfTapsRequired = 1;
     singleTap.numberOfTouchesRequired = 1;
     [self.descView addGestureRecognizer:singleTap];
     [self.descView setUserInteractionEnabled:YES];
-    
 }
 
 - (IBAction)mSignUpButton:(id)sender {
     // Hide keyboard
+    
+    //[SVProgressHUD show];
+    
     [self.view endEditing:YES];
 
     // Get username and password from text field
     NSString *userIdentifier = [self.usernameField text];
     NSString *password = [self.passwordField text];
-
+    
+    // validation error
+    AlertView *alertView = [AlertView new];
+    [alertView setTitle:@"Sign Up Error"];
+    
+    if([userIdentifier length] == 0){
+        [alertView setText:@"ユーザ名が入力されていません"];
+        [self presentViewController:[alertView build] animated:YES completion:nil];
+        return;
+    }else if([password length] == 0){
+        [alertView setText:@"メールアドレスが入力されていません"];
+        [self presentViewController:[alertView build] animated:YES completion:nil];
+        return;
+    }
+    
     // Create KiiUser from username and password
     KiiUser *user = [KiiUser userWithUsername:userIdentifier andPassword:password];
     // Do register with Blocks

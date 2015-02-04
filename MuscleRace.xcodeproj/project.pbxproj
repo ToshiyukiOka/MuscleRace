@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02B073981A81AF8A00B0C3E6 /* AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B073971A81AF8A00B0C3E6 /* AlertView.m */; };
+		02B073B41A81CE1300B0C3E6 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B073AF1A81CE1300B0C3E6 /* SVIndefiniteAnimatedView.m */; };
+		02B073B51A81CE1300B0C3E6 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02B073B11A81CE1300B0C3E6 /* SVProgressHUD.bundle */; };
+		02B073B61A81CE1300B0C3E6 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B073B31A81CE1300B0C3E6 /* SVProgressHUD.m */; };
+		02B073BB1A81DCE100B0C3E6 /* MuscleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B073BA1A81DCE100B0C3E6 /* MuscleGroup.m */; };
 		4F1E5F5F1A1093F6006BFB69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F1E5F5D1A1093F6006BFB69 /* Main.storyboard */; };
 		4F1EA2691A2C51EE00419DBB /* countTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F1EA2671A2C51EE00419DBB /* countTableViewCell.m */; };
 		4F1EA26A1A2C51EE00419DBB /* countTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F1EA2681A2C51EE00419DBB /* countTableViewCell.xib */; };
@@ -56,6 +61,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02B073901A81ACB200B0C3E6 /* MuscleRace-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MuscleRace-Bridging-Header.h"; sourceTree = "<group>"; };
+		02B073961A81AF8A00B0C3E6 /* AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertView.h; sourceTree = "<group>"; };
+		02B073971A81AF8A00B0C3E6 /* AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertView.m; sourceTree = "<group>"; };
+		02B073AE1A81CE1300B0C3E6 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		02B073AF1A81CE1300B0C3E6 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		02B073B01A81CE1300B0C3E6 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		02B073B11A81CE1300B0C3E6 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		02B073B21A81CE1300B0C3E6 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		02B073B31A81CE1300B0C3E6 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		02B073B91A81DCE100B0C3E6 /* MuscleGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuscleGroup.h; sourceTree = "<group>"; };
+		02B073BA1A81DCE100B0C3E6 /* MuscleGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuscleGroup.m; sourceTree = "<group>"; };
 		4F1E5F5E1A1093F6006BFB69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = KiiTutorialApp/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4F1EA2661A2C51EE00419DBB /* countTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = countTableViewCell.h; sourceTree = "<group>"; };
 		4F1EA2671A2C51EE00419DBB /* countTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = countTableViewCell.m; sourceTree = "<group>"; };
@@ -156,17 +172,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02B073AD1A81CE1300B0C3E6 /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				02B073AE1A81CE1300B0C3E6 /* SVIndefiniteAnimatedView.h */,
+				02B073AF1A81CE1300B0C3E6 /* SVIndefiniteAnimatedView.m */,
+				02B073B01A81CE1300B0C3E6 /* SVProgressHUD-Prefix.pch */,
+				02B073B11A81CE1300B0C3E6 /* SVProgressHUD.bundle */,
+				02B073B21A81CE1300B0C3E6 /* SVProgressHUD.h */,
+				02B073B31A81CE1300B0C3E6 /* SVProgressHUD.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		9B5B530D18338B26000533F9 = {
 			isa = PBXGroup;
 			children = (
+				02B073B91A81DCE100B0C3E6 /* MuscleGroup.h */,
+				02B073BA1A81DCE100B0C3E6 /* MuscleGroup.m */,
 				F344C3CB1A371E0D00A82444 /* Fire.sks */,
 				F344C3CC1A371E0D00A82444 /* spark.png */,
 				4F2D14861A1795260060A9D9 /* KiiUserGroup.h */,
 				4F2D14871A1795260060A9D9 /* KiiUserGroup.m */,
 				4F1E5F5D1A1093F6006BFB69 /* Main.storyboard */,
+				02B073961A81AF8A00B0C3E6 /* AlertView.h */,
+				02B073971A81AF8A00B0C3E6 /* AlertView.m */,
 				9B5B531F18338B26000533F9 /* KiiTutorialApp */,
 				9B5B531818338B26000533F9 /* Frameworks */,
 				9B5B531718338B26000533F9 /* Products */,
+				02B073901A81ACB200B0C3E6 /* MuscleRace-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,6 +249,7 @@
 				EAB8AF2C19388459000A4590 /* KiiFileCreateDescViewController.m */,
 				EAB8AF281938737C000A4590 /* KiiUserDescViewController.h */,
 				EAB8AF291938737C000A4590 /* KiiUserDescViewController.m */,
+				02B073AD1A81CE1300B0C3E6 /* SVProgressHUD */,
 				9BB8A06B1834C86C008A338B /* MBProgressHUD */,
 				9B5B532018338B26000533F9 /* Supporting Files */,
 				9B9C41A61834B07400EDED68 /* ViewControllers */,
@@ -347,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F344C3CD1A371E0D00A82444 /* Fire.sks in Resources */,
+				02B073B51A81CE1300B0C3E6 /* SVProgressHUD.bundle in Resources */,
 				9B5B533218338B26000533F9 /* Images.xcassets in Resources */,
 				4F1EA26A1A2C51EE00419DBB /* countTableViewCell.xib in Resources */,
 				4F1E5F5F1A1093F6006BFB69 /* Main.storyboard in Resources */,
@@ -373,6 +409,7 @@
 				4F291F5519E25EBC0043710D /* RBLControlViewController.m in Sources */,
 				9BB8A0741834CABF008A338B /* KiiAppConstants.m in Sources */,
 				4F291F5719E25EBC0043710D /* RBLMainViewController.m in Sources */,
+				02B073B61A81CE1300B0C3E6 /* SVProgressHUD.m in Sources */,
 				EAB8AF2A1938737C000A4590 /* KiiUserDescViewController.m in Sources */,
 				EAB8AF30193888D6000A4590 /* KiiFileAttachDescViewController.m in Sources */,
 				9BA896971835C3120061B1D5 /* KiiViewUtilities.m in Sources */,
@@ -381,13 +418,16 @@
 				4F291F5619E25EBC0043710D /* RBLDetailViewController.m in Sources */,
 				9B5B533018338B26000533F9 /* KiiFirstViewController.m in Sources */,
 				9B9C41A51834B06C00EDED68 /* KiiCreateUserViewController.m in Sources */,
+				02B073BB1A81DCE100B0C3E6 /* MuscleGroup.m in Sources */,
 				EA3155B0193BC42B007DBBFA /* KiiOverviewDataBrowseViewController.m in Sources */,
 				4F291F5219E25EBC0043710D /* CellPin.m in Sources */,
+				02B073B41A81CE1300B0C3E6 /* SVIndefiniteAnimatedView.m in Sources */,
 				9BB8A0711834CA5B008A338B /* KiiCreateObjectViewController.m in Sources */,
 				4F291F6019E25F500043710D /* RBLProtocol.m in Sources */,
 				9B9C41A91834B41F00EDED68 /* KiiFileUploadViewController.m in Sources */,
 				9B9C41AC1834B49200EDED68 /* KiiTutorialOverViewController.m in Sources */,
 				9BB8A06E1834C86C008A338B /* MBProgressHUD.m in Sources */,
+				02B073981A81AF8A00B0C3E6 /* AlertView.m in Sources */,
 				4F2D14881A1795260060A9D9 /* KiiUserGroup.m in Sources */,
 				4F291F5319E25EBC0043710D /* CellUuid.m in Sources */,
 			);
@@ -490,6 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					KiiTutorialApp,
@@ -500,10 +541,13 @@
 				GCC_PREFIX_HEADER = "KiiTutorialApp/MuscleRace-Prefix.pch";
 				INFOPLIST_FILE = "KiiTutorialApp/MuscleRace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = MuscleRace;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OBJC_BRIDGING_HEADER = "MuscleRace-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -514,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					KiiTutorialApp,
@@ -524,10 +569,12 @@
 				GCC_PREFIX_HEADER = "KiiTutorialApp/MuscleRace-Prefix.pch";
 				INFOPLIST_FILE = "KiiTutorialApp/MuscleRace-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = MuscleRace;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OBJC_BRIDGING_HEADER = "MuscleRace-Bridging-Header.h";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

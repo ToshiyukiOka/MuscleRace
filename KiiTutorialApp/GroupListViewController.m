@@ -16,6 +16,7 @@
 #import <Foundation/Foundation.h>
 #import "GroupListViewController.h"
 #import "KiiUserGroup.h"
+#import "MuscleGroup.h"
 
 @interface GroupListViewController () {
     NSArray *groupDatas;
@@ -35,53 +36,31 @@
 {
     //static NSString *CellIdentifier = @"Cell";
     [super viewDidLoad];
-    //groupDatas = [[NSArray alloc] initWithObjects:@"アトラエ", @"サイバーエージェント", @"Gunosy", @"リッチメディア", @"楽天", nil];
-    userGroups = [[NSMutableArray alloc] init];
-    groupNameLists = [[NSMutableArray alloc] init];
-    [self loadInitialData];
+    groupDatas = [[NSArray alloc] init];
+    
+    
+    MuscleGroup *muscleGroup = [[MuscleGroup alloc] initWithName:@"アトラエ" groupId:1];
+    groupDatas = [groupDatas arrayByAddingObject: muscleGroup];
+    
+    //[self loadInitialData];
+    
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
 }
 
 - (void)loadInitialData {
-    
-    NSError *error;
-    // Get the current login user
-    KiiUser *user = [KiiUser currentUser];
-    [user refreshSynchronous:&error];
-    
-    // Get a list of groups in which the current user is a member
-    NSArray* memberGroups = [user memberOfGroupsSynchronous:&error];
-    if (error == nil) {
-        for (KiiGroup* membergroup in memberGroups) {
-            // do something with each group
-            KiiUserGroup* group = [[KiiUserGroup alloc] init];
-            group.groupName = membergroup.name;
-            [groupNameLists addObject:[NSString stringWithFormat:@"%@",membergroup.name]];
-            [userGroups addObject:group];
-            
-            // Add user1 and user2 to the group
-            [membergroup addUser:user];
-            [membergroup saveSynchronous:&error];
-            
-            
-            if (error != nil) {
-                // Group add members failed
-                // Please check error description/code to see what went wrong...
-            }
-        }
-    } else {
-        // Getting a group list failed
-        // Please check error description/code to see what went wrong...
-    }
+    // seiya api
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [userGroups count];
+    return [groupDatas count];
 }
 
 -(void)btnClicked {
-    NSLog(@"%s","11111111");
     NSError *error;
     // Get the current login user
     KiiUser *user = [KiiUser currentUser];
@@ -128,35 +107,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-    if ( indexPath.row == 0 ) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"groupSearchCell" forIndexPath:indexPath];
-        
-        groupSearchField = (UITextField*)[cell.contentView viewWithTag:3];
-        groupSearchButton = (UIButton*)[cell.contentView viewWithTag:4];
-        
-        [groupSearchButton addTarget:self action:@selector(btnClicked)
-        forControlEvents:UIControlEventTouchUpInside];
-        [groupSearchButton setTitleColor: [UIColor blueColor] forState:
-        UIControlStateNormal];
-        [cell addSubview:groupSearchButton];
-    } else {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"groupListCell" forIndexPath:indexPath];
-        KiiUserGroup *userGroup = [userGroups objectAtIndex:indexPath.row];
-        cell.textLabel.text = userGroup.groupName;
-    }
+    
+    NSLog(@"aaaaaaaaaaaaaaaaa");
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"groupListCell" forIndexPath:indexPath];
+    UILabel *nameLabel = (UILabel*)[cell.contentView viewWithTag:1];
+    
+        //KiiUserGroup *userGroup = [userGroups objectAtIndex:indexPath.row];
+    MuscleGroup *muscleGroup = (MuscleGroup *)groupDatas[indexPath.row];
+    nameLabel.text = muscleGroup.name;
     return cell;
 }
 
 // Cell が選択された時
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath*) indexPath{
-    if (indexPath.row != 0){
-        KiiGroup *userGroup = [userGroups objectAtIndex:indexPath.row+1];
-        // toViewController
-        [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
-    }else{
-        return;
-    }
+    [self performSegueWithIdentifier:@"toConnectBLE" sender:self];
 }
+
+- (IBAction)moveToGroupCreateView:(id)sender {
+    [self performSegueWithIdentifier:@"groupCreateView" sender:self];
+}
+
+
 
 @end
