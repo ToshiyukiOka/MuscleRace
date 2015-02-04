@@ -21,6 +21,9 @@
     IBOutlet UILabel *countLabel;
     IBOutlet UILabel *totalCountLabel;
     IBOutlet UILabel *personalCountLabel;
+    IBOutlet UIView *imageGroup;
+    IBOutlet UIImageView *fatMan;
+    int fatManStatus;
 }
 
 @property (strong, nonatomic) BLE *ble;

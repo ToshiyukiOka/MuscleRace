@@ -380,15 +380,21 @@
                                         <action selector="stopCount:" destination="SZA-bT-fWq" eventType="touchUpInside" id="MER-VG-Mkp"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fat_level5_normal" translatesAutoresizingMaskIntoConstraints="NO" id="pHd-yk-5Mc">
-                                    <rect key="frame" x="45" y="169" width="230" height="165"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="165" id="8qX-Ev-VGo"/>
-                                        <constraint firstAttribute="width" constant="230" id="8qo-fo-Oay"/>
-                                    </constraints>
-                                </imageView>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-r8-YPp">
+                                    <rect key="frame" x="42" y="180" width="233" height="165"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="fat_level5_normal" translatesAutoresizingMaskIntoConstraints="NO" id="pHd-yk-5Mc">
+                                            <rect key="frame" x="2" y="0.0" width="230" height="165"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="165" id="8qX-Ev-VGo"/>
+                                                <constraint firstAttribute="width" constant="230" id="8qo-fo-Oay"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.2627450980392157" green="0.57647058823529407" blue="0.67843137254901964" alpha="0.0" colorSpace="calibratedRGB"/>
+                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itz-wq-iBe">
-                                    <rect key="frame" x="282" y="60" width="18" height="22"/>
+                                    <rect key="frame" x="282" y="60" width="18" height="21.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -400,7 +406,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CI-Gc-G4N">
-                                    <rect key="frame" x="121" y="60" width="18" height="22"/>
+                                    <rect key="frame" x="121" y="60" width="18" height="21.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -418,7 +424,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-1c-nXO">
-                                    <rect key="frame" x="127" y="180" width="67" height="144"/>
+                                    <rect key="frame" x="127" y="180" width="66.5" height="143.5"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="120"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -450,8 +456,6 @@
                                 <constraint firstItem="FrI-EF-IQA" firstAttribute="firstBaseline" secondItem="HuS-fW-GX8" secondAttribute="firstBaseline" id="3Ga-YH-73G"/>
                                 <constraint firstAttribute="centerX" secondItem="YdK-1c-nXO" secondAttribute="centerX" id="3TJ-u3-aTx"/>
                                 <constraint firstItem="SJ8-Wy-tzf" firstAttribute="top" secondItem="eUg-0B-7Ww" secondAttribute="top" constant="10" id="6fN-0W-U17"/>
-                                <constraint firstAttribute="centerY" secondItem="pHd-yk-5Mc" secondAttribute="centerY" id="6yH-9U-Oam"/>
-                                <constraint firstAttribute="centerX" secondItem="pHd-yk-5Mc" secondAttribute="centerX" id="8a2-mx-qIs"/>
                                 <constraint firstItem="FrI-EF-IQA" firstAttribute="baseline" secondItem="7CI-Gc-G4N" secondAttribute="firstBaseline" id="CCs-EE-wey"/>
                                 <constraint firstAttribute="trailing" secondItem="itz-wq-iBe" secondAttribute="trailing" constant="20" id="E0q-6e-C1n"/>
                                 <constraint firstAttribute="bottom" secondItem="pDq-yF-L7Z" secondAttribute="bottom" constant="40" id="EIQ-NH-vWX"/>
@@ -548,6 +552,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="countLabel" destination="YdK-1c-nXO" id="yXC-df-MNV"/>
+                        <outlet property="fatMan" destination="pHd-yk-5Mc" id="EMp-6W-9hD"/>
+                        <outlet property="imageGroup" destination="Qfa-r8-YPp" id="MuY-yk-IHn"/>
                         <outlet property="personalCountLabel" destination="FrI-EF-IQA" id="aGw-OB-Dor"/>
                         <outlet property="totalCountLabel" destination="HuS-fW-GX8" id="QEA-Qr-aEW"/>
                         <outlet property="tv" destination="UlX-v3-kzl" id="8ak-Aj-BVZ"/>

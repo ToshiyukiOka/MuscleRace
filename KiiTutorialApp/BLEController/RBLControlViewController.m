@@ -53,6 +53,7 @@ BOOL count_status = false;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSInteger *siboukun_status = 1;
 	// Do any additional setup after loading the view, typically from a nib.
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -68,9 +69,29 @@ BOOL count_status = false;
     protocol = [[RBLProtocol alloc] init];
     protocol.delegate = self;
     protocol.ble = ble;
-    //countLabel.text = @"筋トレを始めましょう！";
-    countLabel.alpha = 0.1;
+    countLabel.alpha = 0.8;
+
+    //しぼうくんの画像切り替え
+    fatManStatus = 0;
+    [NSTimer
+        scheduledTimerWithTimeInterval:1
+        target:self
+        selector:@selector(fatManLevel5Change:)
+        userInfo:nil
+        repeats:YES
+     ];
+
+    //しぼうくんの横移動
+    CABasicAnimation *fatManAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    fatManAnimation.duration = 2;
+    fatManAnimation.repeatCount = HUGE_VALF;
+    fatManAnimation.autoreverses = YES;
+    fatManAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(130, 260)];
+    fatManAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(190, 260)];
+    fatManAnimation.timingFunction = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseInEaseOut];
+    [imageGroup.layer addAnimation:fatManAnimation forKey:@"fatManAnimationLayer"];
     
+
     NSLog(@"ControlView: viewDidLoad");
 }
 
@@ -209,10 +230,10 @@ NSTimer *syncTimer;
             count++;
             if (count > 4){
                 // 画像の読み込み
-                _countImage.image = [UIImage imageNamed:@"title.png"];
+//                _countImage.image = [UIImage imageNamed:@"title.png"];
                 
                 // UIImageViewのインスタンスをビューに追加
-                [self.view addSubview: _countImage];
+//                [self.view addSubview: _countImage];
             }
             NSLog(@"%d回", count);
             countLabel.text = [NSString stringWithFormat:@"%d", count];
@@ -233,7 +254,6 @@ NSTimer *syncTimer;
             
             group.animations = [NSArray arrayWithObjects:Counter_Opacity, Counter_Scale, nil];
             [countLabel.layer addAnimation:group forKey:@"MyAnimation"];
-
         }
     
     }
@@ -329,48 +349,6 @@ NSTimer *syncTimer;
                 NSLog(@"%d回", count);
                 countLabel.text = [NSString stringWithFormat:@"%d", count];
                 count_status = true;
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                [UIView animateWithDuration:0.5
-                                      delay:0
-                                    options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
-                                 animations:^{
-                                     self.countImage.alpha = 1;
-                                 }
-                                 completion:^(BOOL finished){
-                                     nil;
-                                 }
-                
-                ];
-                
-                
-                
-
-               
-                
-                
-                
-                
-                
-                
-                
-                
-                
             }
         }
         else
@@ -495,6 +473,19 @@ uint8_t current_pin = 0;
     {
         pin_servo[pin] = value;
         [protocol servoWrite:pin Value:value];
+    }
+}
+
+//しぼうくん画像変更用メソッド
+-(void)fatManLevel5Change:(NSTimer*)timer{
+    if(fatManStatus == 0){
+        UIImage *img = [UIImage imageNamed:@"fat_level5_cry.png"];
+        fatMan.image =  img;
+        fatManStatus = 1;
+    }else{
+        UIImage *img = [UIImage imageNamed:@"fat_level5_normal.png"];
+        fatMan.image =  img;
+        fatManStatus = 0;
     }
 }
 
