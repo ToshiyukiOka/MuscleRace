@@ -427,7 +427,7 @@
                                                 <constraint firstAttribute="height" constant="55" id="Wy5-fc-xvP"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="iFf-1x-T3o">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fire" translatesAutoresizingMaskIntoConstraints="NO" id="iFf-1x-T3o">
                                             <rect key="frame" x="185" y="64" width="47" height="61"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="47" id="oai-RN-3D2"/>
